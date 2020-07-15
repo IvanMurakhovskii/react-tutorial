@@ -1,4 +1,4 @@
-import { isNumber, isScalarOperator } from './helper';
+import { isNumber, isScalarOperator, isCloseBk, isOpenBk, isFunction } from './helper';
 
 describe("Parser correct case", () => {
     it(" \"1\" is number equals true", () => {
@@ -7,6 +7,22 @@ describe("Parser correct case", () => {
 
     it(" \"+\" is scalar operator equals true", () => {
         expect(isScalarOperator('+')).toBe(true);
+    });
+
+    it(" \"+\" is scalar operator equals true", () => {
+        expect(isScalarOperator('+')).toBe(true);
+    });
+
+    it(" \"!\" is function equals true", () => {
+        expect(isFunction('!')).toBe(true);
+    });
+
+    it(" \"(\" is open bracket equals true", () => {
+        expect(isOpenBk('(')).toBe(true);
+    });
+
+    it(" \")\" is open bracket equals true", () => {
+        expect(isCloseBk(')')).toBe(true);
     });
 });
 

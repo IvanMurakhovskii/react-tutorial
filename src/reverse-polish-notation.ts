@@ -1,7 +1,7 @@
-import { mathOperators, mathOperatorsPriorities } from './math';
+import { mathOperators, mathOperatorsPriorities, funcOperators } from './math';
 import { NumberOrStringType } from './types';
 
-import { isNumber, isScalarOperator } from './helper';
+import { isNumber, isScalarOperator, isCloseBk, isOpenBk, isFunction } from './helper';
 
 export const calculate = (rpnChain: NumberOrStringType): number => {
 
@@ -20,17 +20,19 @@ export const calculate = (rpnChain: NumberOrStringType): number => {
             result.push(res);
         }
 
+        if (isFunction(item.toString())) {
+            const res = funcOperators[item.toString()](result.pop());
+            result.push(res);
+        }
+
     });
 
     return result.pop();
 }
 
 export const rpnChain = (stack: Array<string>): NumberOrStringType => {
-
     const outputArr: NumberOrStringType = [];
     const operationsArr: NumberOrStringType = [];
-
-    const bracketsCounter = 0;
 
     for (let i = 0; i < stack.length; i++) {
 
@@ -38,7 +40,7 @@ export const rpnChain = (stack: Array<string>): NumberOrStringType => {
             outputArr.push(Number(stack[i]));
         }
 
-        else if (isScalarOperator(stack[i])) {
+        if (isScalarOperator(stack[i]) || isFunction(stack[i])) {
 
             if (operationsArr.length == 0) {
                 operationsArr.push(stack[i]);
@@ -54,6 +56,21 @@ export const rpnChain = (stack: Array<string>): NumberOrStringType => {
                     operationsArr.push(operation);
                     operationsArr.push(stack[i]);
                 }
+            }
+        }
+
+        if (isFunction)
+
+            if (isOpenBk(stack[i])) {
+                operationsArr.push(stack[i]);
+            }
+
+        if (isCloseBk(stack[i])) {
+            let currentOperator = operationsArr.pop();
+
+            while (!isOpenBk(currentOperator.toString())) {
+                outputArr.push(currentOperator);
+                currentOperator = operationsArr.pop();
             }
         }
     }
