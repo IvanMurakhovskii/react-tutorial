@@ -7,7 +7,7 @@
     "build": "webpack -w",
     "calc": "npx ts-node ./src",
     "lint": "npx eslint --fix",
-    "test": "jest",
+    "test": "jest ./src",
     "start": "webpack-dev-server",
     "check": "npm test && npm run lint"
   },
