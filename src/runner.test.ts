@@ -10,6 +10,10 @@ describe("Parser correct case", () => {
         expect(runner("2*(2+3)", 1)).toBe(10);
     });
 
+    it("run tan(30) with base type string equals 0.58", () => {
+        expect(runner("tan(30)", 1)).toBe(0.58);
+    });
+
     it("run [2 * 2 + 3] with base type string equals 3", () => {
         expect(runner("2*2+3", 1)).toBe(7);
     });

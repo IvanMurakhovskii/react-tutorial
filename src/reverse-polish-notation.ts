@@ -59,11 +59,9 @@ export const rpnChain = (stack: Array<string>): NumberOrStringType => {
             }
         }
 
-        if (isFunction)
-
-            if (isOpenBk(stack[i])) {
-                operationsArr.push(stack[i]);
-            }
+        if (isOpenBk(stack[i])) {
+            operationsArr.push(stack[i]);
+        }
 
         if (isCloseBk(stack[i])) {
             let currentOperator = operationsArr.pop();

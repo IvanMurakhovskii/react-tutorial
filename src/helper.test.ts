@@ -24,6 +24,18 @@ describe("Parser correct case", () => {
     it(" \")\" is open bracket equals true", () => {
         expect(isCloseBk(')')).toBe(true);
     });
+
+    it(" \"sin\" is open bracket equals true", () => {
+        expect(isFunction('sin')).toBe(true);
+    });
+
+    it(" \"cos\" is open bracket equals true", () => {
+        expect(isFunction('cos')).toBe(true);
+    });
+
+    it(" \"tan\" is open bracket equals true", () => {
+        expect(isFunction('tan')).toBe(true);
+    });
 });
 
 describe("Parser incorrect case", () => {

@@ -12,9 +12,18 @@ export const factorial: funcType = (a) => {
     return a * factorial(a - 1);
 }
 
+export const sin: funcType = (a) => Number.parseFloat(Math.sin(a * Math.PI / 180).toFixed(2));
+export const cos: funcType = (a) => Number.parseFloat(Math.cos(a * Math.PI / 180).toFixed(2));
+export const tan: funcType = (a) => Number.parseFloat(Math.tan(a * Math.PI / 180).toFixed(2));
+
+
+
 
 export const scalarOperators: Array<string> = ["+", "-", "*", "/", "^"];
-export const funcList: Array<string> = ["!"];
+export const funcList: Array<string> = ["!", "sin", "cos", "tan"];
+
+export const funcTrigon: Array<string> = ["sin", "cos", "tan"];
+
 
 export const mathOperators: { [key: string]: binType } = {
     "*": mul,
@@ -26,6 +35,9 @@ export const mathOperators: { [key: string]: binType } = {
 
 export const funcOperators: { [key: string]: funcType } = {
     "!": factorial,
+    "sin": sin,
+    "cos": cos,
+    "tan": tan
 }
 
 export const mathOperatorsPriorities: { [key: string]: number } = {

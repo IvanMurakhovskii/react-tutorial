@@ -1,4 +1,4 @@
-import { add, mul, sub, div, factorial, pow } from './math';
+import { add, mul, sub, div, factorial, pow, sin, cos, tan } from './math';
 
 describe("Parser correct case", () => {
     it("add 1 + 2 equals 3", () => {
@@ -23,5 +23,17 @@ describe("Parser correct case", () => {
 
     it("factorual 2 pow 3 equals 8", () => {
         expect(pow(2, 3)).toBe(8);
+    });
+
+    it("sin(30) equals 0.5", () => {
+        expect(sin(30)).toBe(0.5);
+    });
+
+    it("cos(12) equals 0.84", () => {
+        expect(cos(12)).toBe(0.98);
+    });
+
+    it("tan(30) equals 0.84", () => {
+        expect(tan(30)).toBe(0.58);
     });
 });
