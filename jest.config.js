@@ -1,11 +1,12 @@
 module.exports = {
-  "roots": [
-    "<rootDir>/src"
-  ],
+  // "roots": [
+  //   "<rootDir>/src"
+  // ],
   clearMocks: true,
   coverageDirectory: "coverage",
   testEnvironment: "node",
+  setupFilesAfterEnv: ["<rootDir>/internals/jestSettings.js"],
   transform: {
-    "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
   },
 };

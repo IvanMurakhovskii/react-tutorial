@@ -5,7 +5,7 @@ import { isNumber, isScalarOperator, isCloseBk, isOpenBk, isFunction } from './h
 
 export const calculate = (rpnChain: NumberOrStringType): number => {
 
-    const result: Array<number> = [];
+    const result: Array<number> | undefined = [];
 
     rpnChain.forEach((item) => {
 
@@ -16,23 +16,24 @@ export const calculate = (rpnChain: NumberOrStringType): number => {
         if (isScalarOperator(item.toString())) {
             const b = result.pop();
             const a = result.pop();
-            const res = mathOperators[item.toString()](a, b);
+            const res = mathOperators[item.toString()](a!, b!);
             result.push(res);
         }
 
         if (isFunction(item.toString())) {
-            const res = funcOperators[item.toString()](result.pop());
+            const a = result.pop();
+            const res = funcOperators[item.toString()](a!);
             result.push(res);
         }
 
     });
 
-    return result.pop();
+    return result.pop()!;
 }
 
 export const rpnChain = (stack: Array<string>): NumberOrStringType => {
-    const outputArr: NumberOrStringType = [];
-    const operationsArr: NumberOrStringType = [];
+    const outputArr: NumberOrStringType | undefined = [];
+    const operationsArr: NumberOrStringType | undefined = [];
 
     for (let i = 0; i < stack.length; i++) {
 
@@ -45,7 +46,7 @@ export const rpnChain = (stack: Array<string>): NumberOrStringType => {
             if (operationsArr.length == 0) {
                 operationsArr.push(stack[i]);
             } else {
-                const operation = operationsArr.pop();
+                const operation = operationsArr.pop()!;
                 const operationPrior = mathOperatorsPriorities[operation];
                 const currentOperationPrior = mathOperatorsPriorities[stack[i]];
 
@@ -64,17 +65,17 @@ export const rpnChain = (stack: Array<string>): NumberOrStringType => {
         }
 
         if (isCloseBk(stack[i])) {
-            let currentOperator = operationsArr.pop();
+            let currentOperator = operationsArr.pop()!;
 
             while (!isOpenBk(currentOperator.toString())) {
                 outputArr.push(currentOperator);
-                currentOperator = operationsArr.pop();
+                currentOperator = operationsArr.pop()!;
             }
         }
     }
 
     while (operationsArr.length > 0) {
-        outputArr.push(operationsArr.pop());
+        outputArr.push(operationsArr.pop()!);
     }
 
     return outputArr;

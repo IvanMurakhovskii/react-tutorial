@@ -22,7 +22,7 @@ describe("Parser correct case", () => {
     });
 
     it("validate reverce polish notation cos(30) equals true", () => {
-        expect(rpmValidate(["cos", "30"])).toEqual([true, ""]);
+        expect(rpmValidate(["30", "cos"])).toEqual([true, ""]);
     });
 
 });

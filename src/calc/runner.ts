@@ -6,7 +6,9 @@ import { calculateType } from './calculate-type'
 export const runner = (line: string, inputType: number): number | string => {
     const stack = parser(line);
 
-    const valid = inputType == calculateType.BASE ? validate(stack) : rpmValidate(stack);
+    if (stack == null) return "Empty input string!";
+
+    const valid: [boolean, string] = inputType == calculateType.BASE ? validate(stack) : rpmValidate(stack);
 
     if (!valid[0]) {
         return valid[1];

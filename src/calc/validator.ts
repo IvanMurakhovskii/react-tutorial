@@ -3,10 +3,6 @@ import { isNumber, isCloseBk, isOpenBk, isScalarOperator, isFunction, isFactoria
 export const validate = (line: Array<string>): [boolean, string] => {
     let bkCounter: number = 0;
 
-    if (line === undefined || line === null) {
-        return [false, `Empty string!`];
-    }
-
     for (let i = 0; i < line.length; i++) {
 
         const isBracket = isCloseBk(line[i]) || isOpenBk(line[i]);
@@ -74,6 +70,7 @@ export const validate = (line: Array<string>): [boolean, string] => {
 export const rpmValidate = (line: Array<string>): [boolean, string] => {
     let isNumb: boolean = false;
     let isBinOperator: boolean = false;
+
 
     for (let i = 0; i < line.length; i++) {
         if (isNumber(line[i]) || isScalarOperator(line[i]) || isFunction(line[i])) {
