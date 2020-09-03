@@ -1,7 +1,7 @@
 module.exports = {
-  // "roots": [
-  //   "<rootDir>/src"
-  // ],
+  "roots": [
+    "<rootDir>/src"
+  ],
   clearMocks: true,
   coverageDirectory: "coverage",
   testEnvironment: "node",
@@ -9,4 +9,5 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
   },
+  moduleNameMapper: { "\\.(css)$": "<rootDir>/__mocks__/styleMock.js" },
 };
