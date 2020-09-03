@@ -3,5 +3,4 @@
   Вычисление строк записанных в Revert Polish notation.
 
 Задание 2
-  TODO app: npm rum start; 
-g
+  TODO app: npm rum start;
