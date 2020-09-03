@@ -12,26 +12,24 @@ export interface ToDoData {
 }
 
 interface State {
-    todoData: ToDoData[];
+    todoData: ToDoData[],
 }
 
 export default class App extends Component<{}, State> {
 
-    maxId: number;
-
     constructor() {
         super({});
-        this.maxId = 111;
+
         this.state = {
             todoData: [
-                this.createTodoItem('Task 1'),
-                this.createTodoItem('new task 2'),
-                this.createTodoItem('somesing')
-            ],
+                this.createTodoItem('Task 1', 1),
+                this.createTodoItem('new task 2', 2),
+                this.createTodoItem('somesing', 3)
+            ]
         };
     }
 
-    deleteItem(id: number) {
+    deleteItem = (id: number) => {
 
         this.setState(({ todoData }) => {
             const idx = todoData.findIndex((el) => el.id === id);
@@ -47,7 +45,7 @@ export default class App extends Component<{}, State> {
         });
     };
 
-    toggleProperty(arr: ToDoData[], id: number, propName: string) {
+    toggleProperty(arr: ToDoData[], id: number, propName: "important" | "done") {
         const idx = arr.findIndex((el) => el.id === id);
 
         const oldItem = arr[idx];
@@ -60,7 +58,7 @@ export default class App extends Component<{}, State> {
         ];
     }
 
-    onToggleImportant(id: number) {
+    onToggleImportant = (id: number) => {
         this.setState(({ todoData }) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'important')
@@ -68,7 +66,7 @@ export default class App extends Component<{}, State> {
         });
     };
 
-    onToggleDone(id: number) {
+    onToggleDone = (id: number) => {
         this.setState(({ todoData }) => {
             return {
                 todoData: this.toggleProperty(todoData, id, 'done')
@@ -76,25 +74,24 @@ export default class App extends Component<{}, State> {
         });
     };
 
-    createTodoItem(label: string) {
+    createTodoItem(label: string, id: number) {
         return {
             label,
             important: false,
             done: false,
             hidden: false,
-            id: this.maxId++
+            id
         }
     }
-
 
     render() {
         return (
             <div className='app'>
                 <TodoList
                     todos={this.state.todoData}
-                    onDeleted={(id) => this.deleteItem(id)}
-                    onToggleImportant={(id) => this.onToggleImportant(id)}
-                    onToggleDone={(id) => { this.onToggleDone(id) }} />
+                    onDeleted={this.deleteItem}
+                    onToggleImportant={this.onToggleImportant}
+                    onToggleDone={this.onToggleDone} />
             </div>
         );
     };
