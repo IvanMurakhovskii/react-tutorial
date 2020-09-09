@@ -1,11 +1,17 @@
 const path = require('path');
+require('babel-polyfill');
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
   devtool: "source-map",
-  entry: './src/index.tsx',
+  entry: {
+    app: ['babel-polyfill', './src/']
+  },
+  externals: {
+    paths: "./src/index.tsx"
+  },
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
