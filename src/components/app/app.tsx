@@ -1,35 +1,47 @@
 import React, { Component } from 'react';
 import TodoList from '../todo-list';
+import OrderSelect from '../order-select/order-select';
+import OrderEnum from '../../emums/order-enum';
+import ErrorBoundry from '../error-boundry';
+
+import { ToDoData } from '../types'
+
+import MockService from '../../services/mock-service';
 
 import './app.css';
 
-export interface ToDoData {
-    label: string,
-    important: boolean,
-    done: boolean,
-    hidden: boolean,
-    id: number
-}
 
 interface State {
     todoData: ToDoData[],
+    mockService: MockService,
+    order: OrderEnum
 }
 
-export default class App extends Component<{}, State> {
+export default class App extends Component<any, State> {
 
-    constructor() {
-        super({});
+    constructor(props: any) {
+        super(props);
 
         this.state = {
-            todoData: [
-                this.createTodoItem('Task 1', 1),
-                this.createTodoItem('new task 2', 2),
-                this.createTodoItem('somesing', 3)
-            ]
+            todoData: [],
+            mockService: new MockService(),
+            order: OrderEnum.ASC
         };
+
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
-    deleteItem = (id: number) => {
+    componentDidMount() {
+        const service = new MockService();
+        service.getAllTodos()
+            .then((data) => {
+                this.setState({
+                    todoData: data
+                });
+            });
+    }
+
+    deleteItem(id: number) {
 
         this.setState(({ todoData }) => {
             const idx = todoData.findIndex((el) => el.id === id);
@@ -84,15 +96,38 @@ export default class App extends Component<{}, State> {
         }
     }
 
+    onOrderChange = (order: OrderEnum) => {
+        this.setState({ order: order })
+    }
+
     render() {
         return (
             <div className='app'>
-                <TodoList
-                    todos={this.state.todoData}
-                    onDeleted={this.deleteItem}
-                    onToggleImportant={this.onToggleImportant}
-                    onToggleDone={this.onToggleDone} />
+                <ErrorBoundry>
+                    <OrderSelect
+                        onOrderChange={this.onOrderChange} />
+                    <TodoList
+                        todos={this.state.todoData}
+                        order={this.state.order}
+                        onDeleted={this.deleteItem}
+                        onToggleImportant={this.onToggleImportant}
+                        onToggleDone={this.onToggleDone} />
+                </ErrorBoundry>
             </div>
         );
     };
 };
+
+
+
+// 1. Написать "сложный" компонент с логикой с рядом дочерних презентационных компонентов(можно как основу взять дз из урока про JSX)
+// 2. Описать constructor как минимум в одном компоненте, объявить в конструкторе стейт и привязать контекст методов
+// 3. Описать componentDidMount как минимум в одном компоненте, получить в нем данные сервера(можно использовать заглушку или сторонние сервисы, например https://jsonplaceholder.typicode.com/). 
+// 4. Описать shouldComponentUpdate как минимум в одном компоненте, произвести в нем оптимизацию производительности(если будет притянутый за уши случай - ничего страшного)
+// 5. Описать componentDidUpdate как минимум в одном компоненте, описать в нем условие реализовать обновление стейта при этом условии
+// 8. Написать компонент с отловом ошибок, обернуть в него любой компонент
+
+// Описать подписку на событие
+
+// 6. Описать componentWillUnmout в компоненте, где в рамках componentDidMount была подписка на событие, реализовать отписку от этого события
+// 7. Описать все остальные методы с каким-либо функционалом
