@@ -31,7 +31,7 @@ class TodoList extends Component<TodoListProps, {}> {
     this.setState({ order: props.order });
   }
 
-  componentDidUpdate(prevProps: TodoListProos) {
+  componentDidUpdate(prevProps: TodoListProps) {
     const currentOrder = this.props.order;
     const prevOrder = prevProps.order;
 
