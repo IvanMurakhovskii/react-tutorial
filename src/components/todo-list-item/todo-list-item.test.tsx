@@ -24,8 +24,9 @@ describe("TodoListItem", () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it("check important in className", () => {
-        expect(wrapper.find('.todo-list-item').hasClass('important')).toBe(true);
+    it("simulate click impotrant button", () => {
+        wrapper.find('.btn-impotrant').simulate('click');
+        expect(onToggleImportantMock).toHaveBeenCalled();
     });
 
     it("simulate click delete button", () => {

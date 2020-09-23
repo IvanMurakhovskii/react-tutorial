@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount, render } from "enzyme";
 import TodoList, { TodoListProos } from './todo-list';
 import TodoListItem from '../todo-list-item';
+import OrderEnum from '../../emums/order-enum';
 
 const onDeletedMock = jest.fn();
 const onToggleDoneMock = jest.fn();
@@ -33,21 +34,21 @@ const todos = [
 
 const props: TodoListProos = {
   todos: todos,
+  order: OrderEnum.ASC,
   onDeleted: onDeletedMock,
   onToggleDone: onToggleDoneMock,
   onToggleImportant: onToggleImportantMock
 }
 
 const item = <TodoList {...props} />
+const wrapper = shallow(item);
 
 describe("TodoList", () => {
   it("render item with data", () => {
-    const field = shallow(item)
-    expect(field).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("lenght of child TodoListItem equals 3", () => {
-    const wrapper = shallow(<TodoList {...props} />);
     expect(wrapper.find(TodoListItem).length).toEqual(3);
   });
 

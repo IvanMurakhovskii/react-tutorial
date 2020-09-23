@@ -8,7 +8,8 @@ import { ToDoData } from '../types'
 
 import MockService from '../../services/mock-service';
 
-import './app.css';
+import AddItemForm from '../add-item-form';
+import styled from '@emotion/styled';
 
 
 interface State {
@@ -16,6 +17,11 @@ interface State {
     mockService: MockService,
     order: OrderEnum
 }
+
+const AppStyle = styled.div`
+    margin: 2rem auto 0 auto;
+    width: 60%;
+`;
 
 export default class App extends Component<any, State> {
 
@@ -100,9 +106,32 @@ export default class App extends Component<any, State> {
         this.setState({ order: order })
     }
 
+    addItem = (label: string) => {
+        const newTodo = this.createTodoItem(label, this.getNewTodoId());
+
+        this.setState(({ todoData }) => {
+            const newTodos = [
+                ...todoData,
+                newTodo
+            ];
+
+            return {
+                todoData: newTodos
+            };
+        });
+    }
+
+    getNewTodoId = (): number => {
+        const todos = this.state.todoData;
+
+        const maxId = Math.max(...todos.map(item => item.id), 0);
+
+        return (maxId + 1);
+    }
+
     render() {
         return (
-            <div className='app'>
+            <AppStyle>
                 <ErrorBoundry>
                     <OrderSelect
                         onOrderChange={this.onOrderChange} />
@@ -112,22 +141,9 @@ export default class App extends Component<any, State> {
                         onDeleted={this.deleteItem}
                         onToggleImportant={this.onToggleImportant}
                         onToggleDone={this.onToggleDone} />
+                    <AddItemForm addItem={this.addItem} />
                 </ErrorBoundry>
-            </div>
+            </AppStyle>
         );
     };
 };
-
-
-
-// 1. Написать "сложный" компонент с логикой с рядом дочерних презентационных компонентов(можно как основу взять дз из урока про JSX)
-// 2. Описать constructor как минимум в одном компоненте, объявить в конструкторе стейт и привязать контекст методов
-// 3. Описать componentDidMount как минимум в одном компоненте, получить в нем данные сервера(можно использовать заглушку или сторонние сервисы, например https://jsonplaceholder.typicode.com/). 
-// 4. Описать shouldComponentUpdate как минимум в одном компоненте, произвести в нем оптимизацию производительности(если будет притянутый за уши случай - ничего страшного)
-// 5. Описать componentDidUpdate как минимум в одном компоненте, описать в нем условие реализовать обновление стейта при этом условии
-// 8. Написать компонент с отловом ошибок, обернуть в него любой компонент
-
-// Описать подписку на событие
-
-// 6. Описать componentWillUnmout в компоненте, где в рамках componentDidMount была подписка на событие, реализовать отписку от этого события
-// 7. Описать все остальные методы с каким-либо функционалом
