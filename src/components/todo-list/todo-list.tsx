@@ -15,7 +15,7 @@ const TodoListItemContainer = styled.div`
     background-color: lightgoldenrodyellow;
 `;
 
-export interface TodoListProos {
+export interface TodoListProps {
   todos: Array<ToDoData>,
   order: OrderEnum
   onDeleted(id: number): void,
@@ -23,9 +23,9 @@ export interface TodoListProos {
   onToggleDone(id: number): void,
 }
 
-class TodoList extends Component<TodoListProos, {}> {
+class TodoList extends Component<TodoListProps, {}> {
 
-  constructor(props: TodoListProos) {
+  constructor(props: TodoListProps) {
     super(props);
 
     this.setState({ order: props.order });

@@ -9,7 +9,7 @@ interface TodoTimerState {
     seconds: number
 }
 
-interface TodoTimerProps {
+export interface TodoTimerProps {
     seconds: number
 }
 
@@ -41,9 +41,9 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
         clearInterval(this.intervalId);
     }
 
-    shouldComponentUpdate(nextProps: TodoTimerProps) {
-        return nextProps.seconds !== this.props.seconds;
-    }
+    // shouldComponentUpdate(nextProps: TodoTimerProps) {
+    //     return nextProps.seconds !== this.props.seconds;
+    // }
 
     updateTimer = (): void => {
         let s = this.state.seconds;
