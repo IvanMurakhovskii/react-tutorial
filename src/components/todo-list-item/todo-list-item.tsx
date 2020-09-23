@@ -13,15 +13,11 @@ export interface TodoListItemProps {
     onDeleted(): void,
 }
 
-interface TodoListState {
-    timerSeconds: number
-}
-
 const LabelStyle = styled.div<TodoListItemProps>`
     text-decoration: ${(props) => props.done && 'line-through'};
     font-weight: ${(props) => props.important && 'bold'};
     color: ${(props) => props.important && 'steelblue'}; 
-    flex: 40%;
+    flex: 60%;
     text-align: center;
     margin: auto;
     cursor: pointer;
@@ -48,18 +44,10 @@ const ButtonContainer = styled.div`
 const TimerContainer = styled.div`
     display: flex;
     justify-content: center;
-    flex: 10%;
+    flex: 100%;
 `;
 
-class TodoListItem extends Component<TodoListItemProps, TodoListState> {
-
-    private intervalId: number | undefined;
-
-    constructor(props: TodoListItemProps) {
-        super(props);
-
-        this.state = { timerSeconds: 25 * 60 };
-    }
+class TodoListItem extends Component<TodoListItemProps, {}> {
 
     shouldComponentUpdate(nextProps: TodoListItemProps) {
         const { done, important, label } = { ...this.props };
@@ -68,24 +56,6 @@ class TodoListItem extends Component<TodoListItemProps, TodoListState> {
         const nextLabel = nextProps.label;
 
         return done !== nextDone || important !== nextImportant || label !== nextLabel;
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.intervalId);
-    }
-
-    updateTimer = (): void => {
-        let s = this.state.timerSeconds;
-        this.setState({ timerSeconds: --s });
-
-        if (s <= 0) clearInterval(this.intervalId);
-
-        this.forceUpdate();
-    }
-
-    startTimer = (): void => {
-        if (this.intervalId !== undefined) clearInterval(this.intervalId);
-        this.intervalId = window.setInterval(this.updateTimer, 1000);
     }
 
     render() {
@@ -114,14 +84,9 @@ class TodoListItem extends Component<TodoListItemProps, TodoListState> {
                         Important
                     </Button>
 
-                    <Button className="btn-start"
-                        variant="contained" size="small" color="inherit"
-                        onClick={this.startTimer}>
-                        Start
-                    </Button>
                 </ButtonContainer>
                 <TimerContainer>
-                    <TodoTimer timerSeconds={this.state.timerSeconds} />
+                    <TodoTimer seconds={25 * 60} />
                 </TimerContainer>
             </Container>
         );
