@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount, render } from "enzyme";
-import TodoList, { TodoListProos } from './todo-list';
+import { shallow } from "enzyme";
+import TodoList from './todo-list';
 import TodoListItem from '../todo-list-item';
 import OrderEnum from '../../emums/order-enum';
 
