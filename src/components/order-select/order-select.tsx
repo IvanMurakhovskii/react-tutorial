@@ -55,7 +55,7 @@ const OrderSelect: FC<OrderSelectProps> = ({ onOrderChange }) => {
                 <InputLabel id="labelId">Сортировка</InputLabel>
                 <Select className="order-select"
                     labelId="labelId"
-                    value={'ASC'}
+                    value={OrderEnum.ASC}
                     onChange={(event) => onOrderChange(event.target.value as OrderEnum)}>
                     {elements}
                 </Select>

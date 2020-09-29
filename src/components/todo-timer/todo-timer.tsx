@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, FC, useState } from 'react';
 
 import { Button, IconButton } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
@@ -41,30 +41,25 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
         clearInterval(this.intervalId);
     }
 
-    // shouldComponentUpdate(nextProps: TodoTimerProps) {
-    //     return nextProps.seconds !== this.props.seconds;
-    // }
 
     updateTimer = (): void => {
-        let s = this.state.seconds;
-        this.setState({ seconds: --s });
+        this.setState((currentState) => {
+            let s = currentState.seconds;
+            return { seconds: --s };
+        });
 
-        if (s <= 0) clearInterval(this.intervalId);
-
-        this.forceUpdate();
+        if (this.state.seconds <= 0) clearInterval(this.intervalId);
     }
 
     increaseTimer = (): void => {
         let s = this.state.seconds;
         this.setState({ seconds: s + 60 });
-        this.forceUpdate();
     }
 
     decreaseTimer = (): void => {
         let s = this.state.seconds;
         let newSeconds = (s - 60) <= 0 ? 0 : (s - 60);
         this.setState({ seconds: newSeconds });
-        this.forceUpdate();
     }
 
     startTimer = (): void => {

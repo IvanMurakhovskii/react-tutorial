@@ -25,6 +25,8 @@ const AppStyle = styled.div`
 
 export default class App extends Component<any, State> {
 
+    nextId: Function = () => { };
+
     constructor(props: any) {
         super(props);
 
@@ -44,6 +46,8 @@ export default class App extends Component<any, State> {
                 this.setState({
                     todoData: data
                 });
+
+                this.nextId = this.getNextId();
             });
     }
 
@@ -92,13 +96,13 @@ export default class App extends Component<any, State> {
         });
     };
 
-    createTodoItem(label: string, id: number) {
+    createTodoItem(label: string) {
         return {
             label,
             important: false,
             done: false,
             hidden: false,
-            id
+            id: this.nextId()
         }
     }
 
@@ -107,7 +111,8 @@ export default class App extends Component<any, State> {
     }
 
     addItem = (label: string) => {
-        const newTodo = this.createTodoItem(label, this.getNewTodoId());
+
+        const newTodo = this.createTodoItem(label);
 
         this.setState(({ todoData }) => {
             const newTodos = [
@@ -121,12 +126,12 @@ export default class App extends Component<any, State> {
         });
     }
 
-    getNewTodoId = (): number => {
-        const todos = this.state.todoData;
+    getNextId = (): Function => {
+        let maxId = Math.max(...this.state.todoData.map(item => item.id), 0);
 
-        const maxId = Math.max(...todos.map(item => item.id), 0);
-
-        return (maxId + 1);
+        return function nextId() {
+            return ++maxId;
+        }
     }
 
     render() {

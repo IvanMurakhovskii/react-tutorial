@@ -7,6 +7,10 @@ interface AddItemFormProps {
     addItem(label: string): void
 }
 
+interface AddItemFormState {
+    label: string
+}
+
 const Container = styled.div`
     display: flex;
 `;
@@ -21,7 +25,7 @@ const ButtonStyle = styled.div`
 
 type inputEvent = React.ChangeEvent<HTMLInputElement>;
 
-export default class AddItemForm extends Component<AddItemFormProps, { label: string }> {
+export default class AddItemForm extends Component<AddItemFormProps, AddItemFormState> {
 
     constructor(props: AddItemFormProps) {
         super(props);
@@ -44,7 +48,7 @@ export default class AddItemForm extends Component<AddItemFormProps, { label: st
     render() {
         return (
 
-            <form className="add-item-form"
+            <form
                 onSubmit={this.onSubmit}>
                 <Container>
                     <InputStyle>

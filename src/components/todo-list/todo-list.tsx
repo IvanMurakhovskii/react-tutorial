@@ -23,12 +23,16 @@ export interface TodoListProps {
   onToggleDone(id: number): void,
 }
 
-class TodoList extends Component<TodoListProps, {}> {
+export interface TodoListState {
+  order: OrderEnum
+}
+
+class TodoList extends Component<TodoListProps, TodoListState> {
 
   constructor(props: TodoListProps) {
     super(props);
 
-    this.setState({ order: props.order });
+    this.state = { order: props.order };
   }
 
   componentDidUpdate(prevProps: TodoListProps) {
