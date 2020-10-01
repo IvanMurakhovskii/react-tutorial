@@ -1,3 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoList render item with data 1`] = `ShallowWrapper {}`;
+exports[`TodoList render item with data 1`] = `
+<div
+  className="list-group todo-list"
+>
+  <div
+    key="1"
+  >
+    <Styled(div)>
+      <TodoListItem
+        done={false}
+        hidden={false}
+        important={false}
+        label="test 1"
+        onDeleted={[Function]}
+        onToggleDone={[Function]}
+        onToggleImportant={[Function]}
+      />
+    </Styled(div)>
+  </div>
+  <div
+    key="2"
+  >
+    <Styled(div)>
+      <TodoListItem
+        done={true}
+        hidden={false}
+        important={false}
+        label="test 2"
+        onDeleted={[Function]}
+        onToggleDone={[Function]}
+        onToggleImportant={[Function]}
+      />
+    </Styled(div)>
+  </div>
+  <div
+    key="3"
+  >
+    <Styled(div)>
+      <TodoListItem
+        done={false}
+        hidden={false}
+        important={true}
+        label="test 3"
+        onDeleted={[Function]}
+        onToggleDone={[Function]}
+        onToggleImportant={[Function]}
+      />
+    </Styled(div)>
+  </div>
+</div>
+`;

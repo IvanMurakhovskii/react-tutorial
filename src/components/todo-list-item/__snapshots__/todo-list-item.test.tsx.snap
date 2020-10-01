@@ -1,3 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoListItem render item with data 1`] = `ShallowWrapper {}`;
+exports[`TodoListItem render item with data 1`] = `
+<Styled(div)
+  className="todo-list-item"
+>
+  <Styled(div)
+    done={false}
+    important={true}
+    label="todo"
+    onDeleted={[MockFunction]}
+    onToggleDone={[MockFunction]}
+    onToggleImportant={[MockFunction]}
+  >
+    <span
+      onClick={[MockFunction]}
+    >
+      todo
+    </span>
+  </Styled(div)>
+  <Styled(div)>
+    <WithStyles(ForwardRef(Button))
+      className="btn-delete"
+      color="secondary"
+      onClick={[MockFunction]}
+      size="small"
+      variant="contained"
+    >
+      Delete
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="btn-impotrant"
+      color="primary"
+      onClick={[MockFunction]}
+      size="small"
+      variant="contained"
+    >
+      Important
+    </WithStyles(ForwardRef(Button))>
+  </Styled(div)>
+  <Styled(div)>
+    <TodoTimer
+      seconds={1500}
+    />
+  </Styled(div)>
+</Styled(div)>
+`;

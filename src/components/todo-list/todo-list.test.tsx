@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from "enzyme";
-import TodoList from './todo-list';
+import TodoList, { TodoListProps } from './todo-list';
 import TodoListItem from '../todo-list-item';
 import OrderEnum from '../../emums/order-enum';
 
@@ -32,7 +32,7 @@ const todos = [
   }
 ]
 
-const props: TodoListProos = {
+const props: TodoListProps = {
   todos: todos,
   order: OrderEnum.ASC,
   onDeleted: onDeletedMock,
