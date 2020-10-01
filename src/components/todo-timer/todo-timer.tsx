@@ -1,4 +1,4 @@
-import React, { Component, FC, useState } from 'react';
+import React, { Component } from 'react';
 
 import { Button, IconButton } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';

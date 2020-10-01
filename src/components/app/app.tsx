@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import TodoList from '../todo-list';
 import OrderSelect from '../order-select/order-select';
-import OrderEnum from '../../emums/order-enum';
+import OrderEnum from '@/emums/order-enum';
 import ErrorBoundry from '../error-boundry';
 
-import { ToDoData } from '../types'
+import { ToDoData } from '@/types'
 
-import MockService from '../../services/mock-service';
+import MockService from '@/services/mock-service';
 
 import AddItemForm from '../add-item-form';
 import styled from '@emotion/styled';

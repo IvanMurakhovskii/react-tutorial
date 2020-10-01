@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import TodoListItem from '../todo-list-item'
-import { ToDoData } from '../types/types';
+import { ToDoData } from '@/types';
 
-import OrderEnum from '../../emums/order-enum';
+import OrderEnum from '@/emums/order-enum';
 import styled from '@emotion/styled';
 
 const TodoListItemContainer = styled.div`

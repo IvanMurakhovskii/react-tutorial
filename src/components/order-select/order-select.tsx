@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import OrderEnum from '../../emums/order-enum'
+import OrderEnum from '@/emums/order-enum'
 
 import { Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 import styled from '@emotion/styled';
