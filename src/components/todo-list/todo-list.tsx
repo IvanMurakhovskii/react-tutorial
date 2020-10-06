@@ -6,6 +6,8 @@ import { TodoOrderUtil } from '@/utils';
 
 import OrderEnum from '@/emums/order-enum';
 import styled from '@emotion/styled';
+import Row from '../row';
+import TodoTimer from '../todo-timer';
 
 const TodoListItemContainer = styled.div`
     padding: .25rem .75rem;
@@ -45,11 +47,15 @@ const TodoList: FC<TodoListProps> = (props: TodoListProps) => {
     return (
       <div key={id} >
         <TodoListItemContainer >
-          <TodoListItem  {...itemProps}
-            onDeleted={() => onDeleted(id)}
-            onToggleImportant={() => onToggleImportant(id)}
-            onToggleDone={() => onToggleDone(id)}
-          />
+          <Row
+            left={<TodoListItem  {...itemProps}
+              onDeleted={() => onDeleted(id)}
+              onToggleImportant={() => onToggleImportant(id)}
+              onToggleDone={() => onToggleDone(id)}
+            />}
+            leftFlexBasic={70}
+            right={<TodoTimer seconds={25 * 60} />}
+            rightFlexBasic={20} />
         </TodoListItemContainer>
       </div>
     );
