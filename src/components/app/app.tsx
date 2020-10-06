@@ -143,7 +143,8 @@ export default class App extends Component<any, State> {
             <AppStyle>
                 <ErrorBoundry>
                     <OrderSelect
-                        onOrderChange={this.onOrderChange} />
+                        onOrderChange={this.onOrderChange}
+                        order={this.state.order} />
                     <TodoList
                         todos={this.state.todoData}
                         order={this.state.order}
