@@ -27,7 +27,11 @@ export default class MockService {
 
 
     getAllTodos = async () => {
-        return this._mockTodos;
+        const todos = localStorage.getItem('todos');
+        return todos !== null ? JSON.parse(todos) : this._mockTodos;;
     };
 
+    saveTodos(todos: ToDoData[]) {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
 }

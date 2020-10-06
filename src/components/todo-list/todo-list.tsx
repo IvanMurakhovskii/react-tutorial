@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import TodoListItem from '../todo-list-item'
 import { ToDoData } from '@/types';
+import { TodoOrderUtil } from '@/utils';
 
 import OrderEnum from '@/emums/order-enum';
 import styled from '@emotion/styled';
@@ -27,66 +28,38 @@ export interface TodoListState {
   order: OrderEnum
 }
 
-class TodoList extends Component<TodoListProps, TodoListState> {
+const TodoList: FC<TodoListProps> = (props: TodoListProps) => {
 
-  constructor(props: TodoListProps) {
-    super(props);
+  const [order, setOrder] = useState(props.order);
+  useEffect(() => {
+    setOrder(props.order);
+  }, [props.order]);
 
-    this.state = { order: props.order };
-  }
+  const { todos, onDeleted, onToggleImportant, onToggleDone } = props;
 
-  componentDidUpdate(prevProps: TodoListProps) {
-    const currentOrder = this.props.order;
-    const prevOrder = prevProps.order;
+  const orderedTodos = TodoOrderUtil.orderTodos(todos, order);
 
-    if (currentOrder != prevOrder) {
-      this.setState({ order: currentOrder });
-    }
-  }
+  const elements = orderedTodos.map((item) => {
 
-  orderTodos(todos: Array<ToDoData>, order: OrderEnum): Array<ToDoData> {
-    switch (order) {
-      case OrderEnum.ASC:
-        return todos.sort((a, b) => (a.label > b.label ? 1 : -1));
-      case OrderEnum.DESC:
-        return todos.sort((a, b) => (a.label > b.label ? -1 : 1));
-      case OrderEnum.IMPORTANT:
-        return todos.sort((a, b) => (a.important === b.important) ? 0 : a.important ? -1 : 1);
-      default:
-        return todos.sort();
-    }
-  }
-
-  render() {
-    const { todos, order, onDeleted, onToggleImportant, onToggleDone } = this.props;
-
-    const orderedTodos = this.orderTodos(todos, order);
-
-    const elements = orderedTodos.map((item) => {
-
-      const { id, ...itemProps } = item;
-      return (
-        <div key={id} >
-          <TodoListItemContainer >
-            <TodoListItem  {...itemProps}
-              onDeleted={() => onDeleted(id)}
-              onToggleImportant={() => onToggleImportant(id)}
-              onToggleDone={() => onToggleDone(id)}
-            />
-          </TodoListItemContainer>
-
-        </div>
-
-
-      );
-    });
-
+    const { id, ...itemProps } = item;
     return (
-      <div className="list-group todo-list">
-        {elements}
+      <div key={id} >
+        <TodoListItemContainer >
+          <TodoListItem  {...itemProps}
+            onDeleted={() => onDeleted(id)}
+            onToggleImportant={() => onToggleImportant(id)}
+            onToggleDone={() => onToggleDone(id)}
+          />
+        </TodoListItemContainer>
       </div>
     );
-  }
+  });
+
+  return (
+    <div className="list-group todo-list">
+      {elements}
+    </div>
+  );
 }
 
 export default TodoList;

@@ -61,6 +61,8 @@ export default class App extends Component<any, State> {
                 ...todoData.slice(idx + 1)
             ];
 
+            this.state.mockService.saveTodos(newTodoData);
+
             return {
                 todoData: newTodoData
             }
@@ -119,6 +121,8 @@ export default class App extends Component<any, State> {
                 ...todoData,
                 newTodo
             ];
+
+            this.state.mockService.saveTodos(newTodos);
 
             return {
                 todoData: newTodos
