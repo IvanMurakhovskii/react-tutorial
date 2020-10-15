@@ -23,7 +23,13 @@ const TimerContainer = styled.div`
 `;
 
 const ButtonContainer = styled.div`
+    display: flex;
     margin: auto;
+    justify-content: space-evenly;
+    flex: 1 1 25%;
+    button {
+        margin-right: 5px;
+    }
 `;
 
 
@@ -67,6 +73,11 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
         this.intervalId = window.setInterval(this.updateTimer, 1000);
     }
 
+    resetTimer = (): void => {
+        clearInterval(this.intervalId);
+        this.setState({ seconds: this.props.seconds });
+    }
+
     render() {
         const timerSeconds = this.state.seconds;
 
@@ -99,9 +110,15 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
 
                 <ButtonContainer>
                     <Button className="btn-start"
-                        variant="contained" size="small" color="inherit"
+                        variant="contained" size="small" color="primary"
                         onClick={this.startTimer}>
                         Start
+                    </Button>
+
+                    <Button className="btn-reset"
+                        variant="contained" size="small" color="default"
+                        onClick={this.resetTimer}>
+                        Reset
                     </Button>
                 </ButtonContainer>
             </Container >
