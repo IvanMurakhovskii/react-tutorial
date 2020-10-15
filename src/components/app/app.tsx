@@ -22,7 +22,7 @@ const AppStyle = styled.div`
     width: 60%;
 `;
 
-class App extends Component<{}, State> {
+export default class App extends Component<{}, State> {
 
     nextId: Function = () => { };
 

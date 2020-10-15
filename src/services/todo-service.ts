@@ -1,34 +1,32 @@
-import { ToDoData } from '../types'
+import { ToDoData } from '../types';
 
 export default class TodoService {
-    _mockTodos: ToDoData[] = [
-        {
-            label: 'z task',
-            important: false,
-            done: false,
-            hidden: false,
-            id: 1
-        },
-        {
-            label: 'a task',
-            important: true,
-            done: false,
-            hidden: false,
-            id: 2
-        },
-        {
-            label: 'other task',
-            important: false,
-            done: true,
-            hidden: false,
-            id: 3
-        }
-    ];
+    faker = require('faker/locale/ru');
 
+    createRandomTodos(): ToDoData[] {
+        let randomTodos = [];
+
+        for (let i = 0; i < 5; i++) {
+            const randomTodo = this.getRandomTodo(i);
+            randomTodos.push(randomTodo);
+        }
+
+        return randomTodos;
+    }
+
+    getRandomTodo(lastId: number): ToDoData {
+        return {
+            label: this.faker.hacker.phrase(),
+            important: this.faker.random.boolean(),
+            done: this.faker.random.boolean(),
+            hidden: false,
+            id: ++lastId
+        }
+    }
 
     getAllTodos = async () => {
         const todos = localStorage.getItem('todos');
-        return todos !== null ? JSON.parse(todos) : this._mockTodos;;
+        return todos !== null ? JSON.parse(todos) : this.createRandomTodos();
     };
 
     saveTodos(todos: ToDoData[]) {

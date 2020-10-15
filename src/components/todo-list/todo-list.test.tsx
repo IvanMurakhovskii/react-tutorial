@@ -1,5 +1,9 @@
+/**
+ * @jest-environment jsdom
+*/
+
 import React from 'react';
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import TodoList, { TodoListProps } from './todo-list';
 import TodoListItem from '../todo-list-item';
 import OrderEnum from '../../emums/order-enum';
@@ -41,7 +45,7 @@ const props: TodoListProps = {
 }
 
 const item = <TodoList {...props} />
-const wrapper = shallow(item);
+const wrapper = mount(item);
 
 describe("TodoList", () => {
   it("render item with data", () => {
