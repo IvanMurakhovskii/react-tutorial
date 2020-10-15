@@ -1,4 +1,4 @@
-import { ToDoData } from '../components/types'
+import { ToDoData } from '../types'
 
 export default class MockService {
     _mockTodos: ToDoData[] = [

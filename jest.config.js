@@ -9,5 +9,9 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
   },
-  moduleNameMapper: { "\\.(css)$": "<rootDir>/__mocks__/styleMock.js" },
+  moduleNameMapper: {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+  snapshotSerializers: ['enzyme-to-json/serializer']
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { withKnobs, object } from "@storybook/addon-knobs";
-import { action, HandlerFunction } from "@storybook/addon-actions";
+import { action } from "@storybook/addon-actions";
 import TodoList from "./todo-list";
-import { TodoListItemProps } from "../todo-list-item/todo-list-item";
+import OrderEnum from "../../emums/order-enum";
 
 
 export default {
@@ -29,6 +29,7 @@ export const listWithData: React.FC = () => (
       hidden: false,
       id: 1
     }])}
+    order={OrderEnum.ASC}
     onDeleted={action("deleted")}
     onToggleDone={action("done")}
     onToggleImportant={action("impotrant")}
@@ -44,6 +45,7 @@ export const listWithImportantData: React.FC = () => (
       hidden: false,
       id: 1
     }])}
+    order={OrderEnum.ASC}
     onDeleted={action("deleted")}
     onToggleDone={action("done")}
     onToggleImportant={action("impotrant")}
@@ -66,6 +68,7 @@ export const listWithDoneData: React.FC = () => (
       hidden: false,
       id: 2
     }])}
+    order={OrderEnum.ASC}
     onDeleted={action("deleted")}
     onToggleDone={action("done")}
     onToggleImportant={action("impotrant")}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './todo-list-item.css';
 import TodoTimer from '../todo-timer';
+
+import Button from '@material-ui/core/Button';
+import styled from '@emotion/styled';
 
 export interface TodoListItemProps {
     label: string,
@@ -11,19 +13,41 @@ export interface TodoListItemProps {
     onDeleted(): void,
 }
 
-interface TodoListState {
-    timerSeconds: number
-}
+const LabelStyle = styled.div<TodoListItemProps>`
+    text-decoration: ${(props) => props.done && 'line-through'};
+    font-weight: ${(props) => props.important && 'bold'};
+    color: ${(props) => props.important && 'steelblue'}; 
+    flex: 60%;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    user-select: none;
+`;
 
-class TodoListItem extends Component<TodoListItemProps, TodoListState> {
+const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+`;
 
-    private intervalId: number | undefined;
 
-    constructor(props: TodoListItemProps) {
-        super(props);
-
-        this.state = { timerSeconds: 25 * 60 };
+const ButtonContainer = styled.div`
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    flex: 25%;
+    button {
+        margin-right: 5px;
     }
+`;
+
+const TimerContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex: 100%;
+`;
+
+class TodoListItem extends Component<TodoListItemProps, {}> {
 
     shouldComponentUpdate(nextProps: TodoListItemProps) {
         const { done, important, label } = { ...this.props };
@@ -34,58 +58,37 @@ class TodoListItem extends Component<TodoListItemProps, TodoListState> {
         return done !== nextDone || important !== nextImportant || label !== nextLabel;
     }
 
-    componentWillMount() {
-        clearInterval(this.intervalId);
-    }
-
-    updateTimer = (): void => {
-        let s = this.state.timerSeconds;
-        this.setState({ timerSeconds: --s });
-
-        if (s <= 0) clearInterval(this.intervalId);
-
-        this.forceUpdate();
-    }
-
-    startTimer = (): void => {
-        this.intervalId = window.setInterval(this.updateTimer, 1000);
-    }
-
     render() {
 
-        const { done, important, label, onToggleDone, onToggleImportant, onDeleted } = { ...this.props };
-
-        let classNames = `todo-list-item ${done ? 'done' : ''} ${important ? 'important' : ''}`;
+        const { label, onToggleDone, onToggleImportant, onDeleted } = { ...this.props };
 
         return (
-            <div>
-                <span className={classNames}>
+            <Container className="todo-list-item">
+                <LabelStyle {...this.props}>
                     <span
-                        className="todo-list-item-label"
                         onClick={onToggleDone}>
                         {label}
                     </span>
+                </LabelStyle>
 
-                    <button type="button"
-                        className="btn-start"
-                        onClick={this.startTimer} >
-                        Start
-                </button>
-
-                    <button type="button"
-                        className="btn-important"
-                        onClick={onToggleImportant}>
-                        Important
-                </button>
-
-                    <button type="button"
-                        className="btn-delete"
+                <ButtonContainer>
+                    <Button className="btn-delete"
+                        variant="contained" size="small" color="secondary"
                         onClick={onDeleted}>
                         Delete
-                </button>
-                </span>
-                <TodoTimer timerSeconds={this.state.timerSeconds} />
-            </div>
+                    </Button>
+
+                    <Button className="btn-impotrant"
+                        variant="contained" size="small" color="primary"
+                        onClick={onToggleImportant}>
+                        Important
+                    </Button>
+
+                </ButtonContainer>
+                <TimerContainer>
+                    <TodoTimer seconds={25 * 60} />
+                </TimerContainer>
+            </Container>
         );
     }
 }

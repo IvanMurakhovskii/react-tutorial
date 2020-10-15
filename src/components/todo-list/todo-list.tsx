@@ -1,13 +1,21 @@
-import React, { FC, Component } from 'react';
+import React, { Component } from 'react';
 
 import TodoListItem from '../todo-list-item'
+import { ToDoData } from '@/types';
 
-import { ToDoData } from '../types/types';
+import OrderEnum from '@/emums/order-enum';
+import styled from '@emotion/styled';
 
-import './todo-list.css';
-import OrderEnum from '../../emums/order-enum';
+const TodoListItemContainer = styled.div`
+    padding: .25rem .75rem;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    background-color: lightgoldenrodyellow;
+`;
 
-export interface TodoListProos {
+export interface TodoListProps {
   todos: Array<ToDoData>,
   order: OrderEnum
   onDeleted(id: number): void,
@@ -15,15 +23,19 @@ export interface TodoListProos {
   onToggleDone(id: number): void,
 }
 
-class TodoList extends Component<TodoListProos, {}> {
+export interface TodoListState {
+  order: OrderEnum
+}
 
-  constructor(props: TodoListProos) {
+class TodoList extends Component<TodoListProps, TodoListState> {
+
+  constructor(props: TodoListProps) {
     super(props);
 
-    this.setState({ order: props.order });
+    this.state = { order: props.order };
   }
 
-  componentDidUpdate(prevProps: TodoListProos) {
+  componentDidUpdate(prevProps: TodoListProps) {
     const currentOrder = this.props.order;
     const prevOrder = prevProps.order;
 
@@ -54,13 +66,18 @@ class TodoList extends Component<TodoListProos, {}> {
 
       const { id, ...itemProps } = item;
       return (
-        <div key={id} className="list-item">
-          <TodoListItem  {...itemProps}
-            onDeleted={() => onDeleted(id)}
-            onToggleImportant={() => onToggleImportant(id)}
-            onToggleDone={() => onToggleDone(id)}
-          />
+        <div key={id} >
+          <TodoListItemContainer >
+            <TodoListItem  {...itemProps}
+              onDeleted={() => onDeleted(id)}
+              onToggleImportant={() => onToggleImportant(id)}
+              onToggleDone={() => onToggleDone(id)}
+            />
+          </TodoListItemContainer>
+
         </div>
+
+
       );
     });
 
