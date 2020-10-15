@@ -6,15 +6,14 @@ import ErrorBoundry from '../error-boundry';
 
 import { ToDoData } from '@/types'
 
-import MockService from '@/services/mock-service';
+import TodoService from '@/services/todo-service';
 
 import AddItemForm from '../add-item-form';
 import styled from '@emotion/styled';
 
-
 interface State {
     todoData: ToDoData[],
-    mockService: MockService,
+    todoService: TodoService,
     order: OrderEnum
 }
 
@@ -23,7 +22,7 @@ const AppStyle = styled.div`
     width: 60%;
 `;
 
-export default class App extends Component<any, State> {
+class App extends Component<{}, State> {
 
     nextId: Function = () => { };
 
@@ -32,7 +31,7 @@ export default class App extends Component<any, State> {
 
         this.state = {
             todoData: [],
-            mockService: new MockService(),
+            todoService: new TodoService(),
             order: OrderEnum.ASC
         };
 
@@ -40,7 +39,7 @@ export default class App extends Component<any, State> {
     }
 
     componentDidMount() {
-        const service = new MockService();
+        const service = this.state.todoService;
         service.getAllTodos()
             .then((data) => {
                 this.setState({
@@ -61,7 +60,7 @@ export default class App extends Component<any, State> {
                 ...todoData.slice(idx + 1)
             ];
 
-            this.state.mockService.saveTodos(newTodoData);
+            this.state.todoService.saveTodos(newTodoData);
 
             return {
                 todoData: newTodoData
@@ -122,7 +121,7 @@ export default class App extends Component<any, State> {
                 newTodo
             ];
 
-            this.state.mockService.saveTodos(newTodos);
+            this.state.todoService.saveTodos(newTodos);
 
             return {
                 todoData: newTodos

@@ -1,6 +1,6 @@
 import { ToDoData } from '../types'
 
-export default class MockService {
+export default class TodoService {
     _mockTodos: ToDoData[] = [
         {
             label: 'z task',
