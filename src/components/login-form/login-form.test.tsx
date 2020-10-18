@@ -14,5 +14,4 @@ describe("LoginForm", () => {
     it("render item with data", () => {
         expect(wrapper).toMatchSnapshot();
     });
-
 });

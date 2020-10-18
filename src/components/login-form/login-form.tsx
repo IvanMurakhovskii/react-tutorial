@@ -1,11 +1,11 @@
 import { Button, makeStyles } from '@material-ui/core';
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
-
+import { logIn } from '@/utils';
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,8 +24,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+type inputEvent = React.ChangeEvent<HTMLInputElement>;
+
 const LoginForm: FC<{}> = () => {
     const classes = useStyles();
+    const history = useHistory();
+    const [state, setState] = useState({ username: '' });
+
+    const onSubmit = async (event: React.FormEvent<EventTarget>) => {
+        event.preventDefault();
+
+        await logIn(state.username);
+        history.replace("/");
+    }
+
+    const onChange = (event: inputEvent) => {
+        setState({ username: event.target.value });
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -34,7 +49,8 @@ const LoginForm: FC<{}> = () => {
                 <Typography component="h1" variant="h5">
                     Sign in
             </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate
+                    onSubmit={onSubmit}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -45,17 +61,17 @@ const LoginForm: FC<{}> = () => {
                         name="username"
                         autoComplete="email"
                         autoFocus
+                        onChange={onChange}
+                        value={state.username}
                     />
-
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}
-                    >
+                        className={classes.submit}>
                         Sign In
-              </Button>
+                    </Button>
                 </form>
             </div>
         </Container>

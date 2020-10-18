@@ -85,6 +85,7 @@ exports[`LoginForm render item with data 1`] = `
           <form
             className="makeStyles-form-2"
             noValidate={true}
+            onSubmit={[Function]}
           >
             <WithStyles(ForwardRef(TextField))
               autoComplete="email"
@@ -94,7 +95,9 @@ exports[`LoginForm render item with data 1`] = `
               label="Username"
               margin="normal"
               name="username"
+              onChange={[Function]}
               required={true}
+              value=""
               variant="outlined"
             >
               <ForwardRef(TextField)
@@ -110,7 +113,9 @@ exports[`LoginForm render item with data 1`] = `
                 label="Username"
                 margin="normal"
                 name="username"
+                onChange={[Function]}
                 required={true}
+                value=""
                 variant="outlined"
               >
                 <WithStyles(ForwardRef(FormControl))
@@ -233,6 +238,8 @@ exports[`LoginForm render item with data 1`] = `
                         }
                         multiline={false}
                         name="username"
+                        onChange={[Function]}
+                        value=""
                       >
                         <ForwardRef(OutlinedInput)
                           autoComplete="email"
@@ -266,6 +273,8 @@ exports[`LoginForm render item with data 1`] = `
                           }
                           multiline={false}
                           name="username"
+                          onChange={[Function]}
+                          value=""
                         >
                           <WithStyles(ForwardRef(InputBase))
                             autoComplete="email"
@@ -294,8 +303,10 @@ exports[`LoginForm render item with data 1`] = `
                             inputComponent="input"
                             multiline={false}
                             name="username"
+                            onChange={[Function]}
                             renderSuffix={[Function]}
                             type="text"
+                            value=""
                           >
                             <ForwardRef(InputBase)
                               autoComplete="email"
@@ -327,8 +338,10 @@ exports[`LoginForm render item with data 1`] = `
                               inputComponent="input"
                               multiline={false}
                               name="username"
+                              onChange={[Function]}
                               renderSuffix={[Function]}
                               type="text"
+                              value=""
                             >
                               <div
                                 className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -348,6 +361,7 @@ exports[`LoginForm render item with data 1`] = `
                                   onFocus={[Function]}
                                   required={true}
                                   type="text"
+                                  value=""
                                 />
                                 <WithStyles(ForwardRef(NotchedOutline))
                                   className="MuiOutlinedInput-notchedOutline"
