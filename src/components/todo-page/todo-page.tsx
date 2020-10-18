@@ -10,11 +10,14 @@ import TodoService from '@/services/todo-service';
 
 import AddItemForm from '../add-item-form';
 import styled from '@emotion/styled';
+import Header from '../header/intex';
+import { getUsername, isUserLoggedIn } from '@/utils';
 
 interface State {
     todoData: ToDoData[],
     todoService: TodoService,
-    order: OrderEnum
+    order: OrderEnum,
+    username: string
 }
 
 const AppStyle = styled.div`
@@ -32,7 +35,8 @@ export default class TodoPage extends Component<{}, State> {
         this.state = {
             todoData: [],
             todoService: new TodoService(),
-            order: OrderEnum.ASC
+            order: OrderEnum.ASC,
+            username: ''
         };
 
         this.deleteItem = this.deleteItem.bind(this);
@@ -48,6 +52,14 @@ export default class TodoPage extends Component<{}, State> {
 
                 this.nextId = this.getNextId();
             });
+
+        getUsername().then(name => {
+            if (name != null) {
+                this.setState({
+                    username: name
+                });
+            }
+        });
     }
 
     deleteItem(id: number) {
@@ -140,6 +152,7 @@ export default class TodoPage extends Component<{}, State> {
     render() {
         return (
             <AppStyle>
+                <Header username={this.state.username} isAuth={isUserLoggedIn()} />
                 <ErrorBoundry>
                     <OrderSelect
                         onOrderChange={this.onOrderChange}

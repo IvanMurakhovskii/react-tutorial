@@ -35,7 +35,7 @@ const LoginForm: FC<{}> = () => {
         event.preventDefault();
 
         await logIn(state.username);
-        history.replace("/");
+        history.push("/");
     }
 
     const onChange = (event: inputEvent) => {
