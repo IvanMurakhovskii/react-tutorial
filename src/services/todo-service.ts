@@ -20,16 +20,25 @@ export default class TodoService {
             important: this.faker.random.boolean(),
             done: this.faker.random.boolean(),
             hidden: false,
-            id: ++lastId
+            id: lastId += 1
         }
     }
 
-    getAllTodos = async () => {
+    getAllTodos = async (): Promise<ToDoData[]> => {
         const todos = localStorage.getItem('todos');
         return todos !== null ? JSON.parse(todos) : this.createRandomTodos();
     };
 
     saveTodos(todos: ToDoData[]) {
         localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    getNextId = (todos: ToDoData[]): Function => {
+        let maxId = Math.max(...todos.map(item => item.id), 0);
+
+        return function nextId() {
+            console.log(maxId);
+            return maxId += 1;
+        }
     }
 }

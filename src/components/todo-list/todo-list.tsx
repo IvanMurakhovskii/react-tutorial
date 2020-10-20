@@ -2,12 +2,12 @@ import React, { FC, useEffect, useState } from 'react';
 
 import TodoListItem from '../todo-list-item'
 import { ToDoData } from '@/types';
-import { TodoOrderUtil } from '@/utils';
 
 import OrderEnum from '@/emums/order-enum';
 import styled from '@emotion/styled';
 import Row from '../row';
 import TodoTimer from '../todo-timer';
+import { orderTodos } from '@/utils';
 
 const TodoListItemContainer = styled.div`
     padding: .25rem .75rem;
@@ -39,7 +39,7 @@ const TodoList: FC<TodoListProps> = (props: TodoListProps) => {
 
   const { todos, onDeleted, onToggleImportant, onToggleDone } = props;
 
-  const orderedTodos = TodoOrderUtil.orderTodos(todos, order);
+  const orderedTodos = orderTodos(todos, order);
 
   const elements = orderedTodos.map((item) => {
 

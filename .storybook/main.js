@@ -13,10 +13,7 @@ module.exports = {
   webpackFinal: async (config) => {
     return {
       ...config,
-      resolve: {
-        extensions: custom.resolve.extensions,
-        alias: custom.resolve.alias,
-      },
+      resolve: custom.resolve,
       module: {
         ...config.module,
         rules: custom.module.rules
