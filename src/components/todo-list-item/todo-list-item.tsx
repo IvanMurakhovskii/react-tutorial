@@ -17,16 +17,15 @@ const LabelStyle = styled.div<TodoListItemProps>`
     text-decoration: ${(props) => props.done && 'line-through'};
     font-weight: ${(props) => props.important && 'bold'};
     color: ${(props) => props.important && 'steelblue'}; 
-    flex: 60%;
+    flex: 4 1 auto;
     text-align: center;
-    margin: auto;
     cursor: pointer;
     user-select: none;
 `;
 
 const Container = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: row;
     font-size: 1.2rem;
 `;
 
@@ -35,16 +34,10 @@ const ButtonContainer = styled.div`
     display: flex;
     margin: auto;
     justify-content: space-evenly;
-    flex: 25%;
+    flex: 1 1 25%;
     button {
         margin-right: 5px;
     }
-`;
-
-const TimerContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    flex: 100%;
 `;
 
 class TodoListItem extends Component<TodoListItemProps, {}> {
@@ -85,9 +78,6 @@ class TodoListItem extends Component<TodoListItemProps, {}> {
                     </Button>
 
                 </ButtonContainer>
-                <TimerContainer>
-                    <TodoTimer seconds={25 * 60} />
-                </TimerContainer>
             </Container>
         );
     }

@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 
 export interface OrderSelectProps {
     onOrderChange(type: OrderEnum): void
+    order: OrderEnum
 }
 
 export interface OrderSelectType {
@@ -36,7 +37,7 @@ const OrderSelectStyle = styled.div`
     margin-bottom: 5px;         
 `;
 
-const OrderSelect: FC<OrderSelectProps> = ({ onOrderChange }) => {
+const OrderSelect: FC<OrderSelectProps> = ({ onOrderChange, order }) => {
 
     const elements = orderTypes.map((item) => {
 
@@ -55,7 +56,7 @@ const OrderSelect: FC<OrderSelectProps> = ({ onOrderChange }) => {
                 <InputLabel id="labelId">Сортировка</InputLabel>
                 <Select className="order-select"
                     labelId="labelId"
-                    value={OrderEnum.ASC}
+                    value={order}
                     onChange={(event) => onOrderChange(event.target.value as OrderEnum)}>
                     {elements}
                 </Select>

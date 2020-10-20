@@ -38,10 +38,5 @@ exports[`TodoListItem render item with data 1`] = `
       Important
     </WithStyles(ForwardRef(Button))>
   </Styled(div)>
-  <Styled(div)>
-    <TodoTimer
-      seconds={1500}
-    />
-  </Styled(div)>
 </Styled(div)>
 `;
