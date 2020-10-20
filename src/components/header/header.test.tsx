@@ -26,5 +26,4 @@ describe("Header", () => {
         wrapper.find('button[type="button"]').simulate('click');
         expect(mockHistory.push).toHaveBeenCalledWith("/login");
     });
-
 });

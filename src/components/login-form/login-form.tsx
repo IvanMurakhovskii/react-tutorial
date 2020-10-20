@@ -1,5 +1,5 @@
 import { Button, makeStyles } from '@material-ui/core';
-import React, { FC, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -31,14 +31,14 @@ const LoginForm: FC<{}> = () => {
     const history = useHistory();
     const [state, setState] = useState({ username: '' });
 
-    const onSubmit = async (event: React.FormEvent<EventTarget>) => {
-        event.preventDefault();
+    const handleSubmit = useCallback((_event) => {
+        _event.preventDefault();
 
-        await logIn(state.username);
+        logIn(state.username);
         history.push("/");
-    }
+    }, [state.username]);
 
-    const onChange = (event: inputEvent) => {
+    const handleChange = (event: inputEvent) => {
         setState({ username: event.target.value });
     }
 
@@ -50,7 +50,7 @@ const LoginForm: FC<{}> = () => {
                     Sign in
             </Typography>
                 <form className={classes.form} noValidate
-                    onSubmit={onSubmit}>
+                    onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -61,7 +61,7 @@ const LoginForm: FC<{}> = () => {
                         name="username"
                         autoComplete="email"
                         autoFocus
-                        onChange={onChange}
+                        onChange={handleChange}
                         value={state.username}
                     />
                     <Button

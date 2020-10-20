@@ -15,7 +15,6 @@ import { getUsername, isUserLoggedIn } from '@/utils';
 
 interface State {
     todoData: ToDoData[],
-    todoService: TodoService,
     order: OrderEnum,
     username: string
 }
@@ -29,12 +28,13 @@ export default class TodoPage extends Component<{}, State> {
 
     nextId: Function = () => { };
 
+    todoService = new TodoService();
+
     constructor(props: any) {
         super(props);
 
         this.state = {
             todoData: [],
-            todoService: new TodoService(),
             order: OrderEnum.ASC,
             username: ''
         };
@@ -43,14 +43,13 @@ export default class TodoPage extends Component<{}, State> {
     }
 
     componentDidMount() {
-        const service = this.state.todoService;
-        service.getAllTodos()
+        this.todoService.getAllTodos()
             .then((data) => {
                 this.setState({
                     todoData: data
                 });
 
-                this.nextId = this.getNextId();
+                this.nextId = this.todoService.getNextId(data);
             });
 
         getUsername().then(name => {
@@ -72,7 +71,7 @@ export default class TodoPage extends Component<{}, State> {
                 ...todoData.slice(idx + 1)
             ];
 
-            this.state.todoService.saveTodos(newTodoData);
+            this.todoService.saveTodos(newTodoData);
 
             return {
                 todoData: newTodoData
@@ -133,20 +132,12 @@ export default class TodoPage extends Component<{}, State> {
                 newTodo
             ];
 
-            this.state.todoService.saveTodos(newTodos);
+            this.todoService.saveTodos(newTodos);
 
             return {
                 todoData: newTodos
             };
         });
-    }
-
-    getNextId = (): Function => {
-        let maxId = Math.max(...this.state.todoData.map(item => item.id), 0);
-
-        return function nextId() {
-            return ++maxId;
-        }
     }
 
     render() {
