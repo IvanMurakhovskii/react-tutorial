@@ -42,11 +42,16 @@ const query = createQs(qsObj);
 console.log(query);
 
 // 3. Объект из querystring
-const qs = '?page=2&amp;pageSize=10&amp;total=205&amp;somethingElse=value'
+const qs = '?page=2&pageSize=10&total=205&somethingElse=value'
 
 // { page: '2', pageSize: '10', total: '205', somethingElse: 'value' }
-const parseQs = (qs) => {
-
+const parseQs = (qs: string) => {
+   return qs.slice(1)
+    .split('&')
+    .map(p => p.split('='))
+    .reduce((obj, [key, value]) => {
+        return ({...obj, [key]: value})
+    }, {});
 }
-const result = parseQs(qs)
-console.log(result)
+const result = parseQs(qs);
+console.log(result);
