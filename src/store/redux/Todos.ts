@@ -3,7 +3,7 @@ import { ToDoData } from "@/types";
 import { getUsername } from "@/utils";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type  TodoState = {
+export type TodoState = {
     todoData: ToDoData[],
     order: OrderEnum,
     username: string,
@@ -19,12 +19,7 @@ export const initialState: TodoState = {
     hasError: false
 };
 
-export const loadUsername = createAsyncThunk(
-    'username', async () => {
-       return getUsername(); 
-    }
-);
-
+export const loadUsername = createAsyncThunk('username', getUsername);
 
 export const todo = createSlice({
     name: "todo",
@@ -36,8 +31,8 @@ export const todo = createSlice({
             const idx = todos.findIndex((el) => el.id === id);
 
             const oldItem = todos[idx];
-            const newItem = { ...oldItem, important: !oldItem.important};
-    
+            const newItem = { ...oldItem, important: !oldItem.important };
+
             state.todoData = [
                 ...todos.slice(0, idx),
                 newItem,
@@ -50,8 +45,8 @@ export const todo = createSlice({
             const idx = todos.findIndex((el) => el.id === id);
 
             const oldItem = todos[idx];
-            const newItem = { ...oldItem, done: !oldItem.done};
-    
+            const newItem = { ...oldItem, done: !oldItem.done };
+
             state.todoData = [
                 ...todos.slice(0, idx),
                 newItem,
@@ -93,5 +88,5 @@ export const todo = createSlice({
             state.loading = false;
             state.hasError = true;
         });
-      },
+    },
 });
