@@ -11,6 +11,7 @@ export const isUserLoggedIn = (): boolean => {
     return Boolean(uesrname);
 }
 
-export const getUsername = async (): Promise<string | null> => {
-    return localStorage.getItem('username');
+export const getUsername = async (): Promise<string> => {
+    const username = localStorage.getItem('username');
+    return username !== null ? username : '';
 }

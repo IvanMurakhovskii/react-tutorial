@@ -69,10 +69,13 @@
     "@emotion/styled": "^10.0.27",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@reduxjs/toolkit": "^1.4.0",
     "@storybook/addon-knobs": "^5.3.19",
     "faker": "^5.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "redux-thunk": "^2.3.0"
   }
 }
