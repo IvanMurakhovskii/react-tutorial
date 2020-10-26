@@ -1,9 +1,7 @@
-import { todo } from './Todos';
 import { expectSaga } from "redux-saga-test-plan";
-import { getTodoData, loadTodos, saveNewTodo } from './TodosSaga';
+import { getTodoData, saveNewTodo } from './TodosSaga';
 import { select } from 'redux-saga-test-plan/matchers';
-import TodoService from '@/services/todo-service';
-import { ToDoData } from '@/types';
+import { default as todoService } from '@/services/todo-service';
 
 const todos = [
   {
@@ -29,13 +27,11 @@ const todos = [
   }
 ];
 
-const service = new TodoService();
-
 describe("Todos saga", () => {
   it("save new todo to storage", () => {
     return expectSaga(saveNewTodo)
       .provide([[select(getTodoData), todos]])
-      .call(service.saveTodos, todos)
+      .call(todoService.saveTodos, todos)
       .run();
   });
 })
