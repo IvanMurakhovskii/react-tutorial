@@ -1,7 +1,6 @@
 import OrderEnum from "@/emums/order-enum";
 import { ToDoData } from "@/types";
-import { getUsername } from "@/utils";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type TodoState = {
     todoData: ToDoData[],
@@ -18,8 +17,6 @@ export const initialState: TodoState = {
     loading: false,
     hasError: false
 };
-
-export const loadUsername = createAsyncThunk('username', getUsername);
 
 export const todo = createSlice({
     name: "todo",
@@ -72,21 +69,14 @@ export const todo = createSlice({
 
             state.todoData = newTodos;
         },
+        addTodos: (state, action: PayloadAction<ToDoData[]>) => {
+            state.todoData = action.payload;
+        },
         changeOrder: (state, action: PayloadAction<OrderEnum>) => {
             state.order = action.payload;
-        }
-    },
-    extraReducers: builder => {
-        builder.addCase(loadUsername.pending, (state) => {
-            state.loading = true;
-        });
-        builder.addCase(loadUsername.fulfilled, (state, action: PayloadAction<string>) => {
+        },
+        setUsername: (state, action: PayloadAction<OrderEnum>) => {
             state.username = action.payload;
-            state.loading = false;
-        });
-        builder.addCase(loadUsername.rejected, (state) => {
-            state.loading = false;
-            state.hasError = true;
-        });
-    },
+        }
+    }
 });

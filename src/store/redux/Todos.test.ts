@@ -57,14 +57,4 @@ describe("Todos reducer", () => {
   it("add new todo", () => {
     expect(todo.reducer(initialState, todo.actions.addTodo(newTodo)).todoData[3]).toEqual(newTodo);
   });
-  it("rejected loading username", () => {
-    const action = { type: loadUsername.rejected.type };
-    const state = todo.reducer(initialState, action);
-    expect(state.hasError).toEqual(true);
-  });
-  it("pending loading username", () => {
-    const action = { type: loadUsername.pending.type };
-    const state = todo.reducer(initialState, action);
-    expect(state.loading).toEqual(true);
-  });
 });

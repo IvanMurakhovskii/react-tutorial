@@ -4,7 +4,7 @@ type AuthState = {
     username: string
 }
 
-export const initialState: AuthState = {username : ''};
+export const initialState: AuthState = { username: '' };
 
 export const auth = createSlice({
     name: "auth",
@@ -14,7 +14,7 @@ export const auth = createSlice({
             state.username = action.payload;
         },
         logout: () => {
-            return initialState;    
+            return initialState;
         }
     }
 });
