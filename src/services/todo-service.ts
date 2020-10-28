@@ -1,6 +1,6 @@
 import { ToDoData } from '../types';
 
-export default class TodoService {
+class TodoService {
     faker = require('faker/locale/ru');
 
     createRandomTodos(): ToDoData[] {
@@ -42,3 +42,5 @@ export default class TodoService {
         }
     }
 }
+
+export const todoService = new TodoService();

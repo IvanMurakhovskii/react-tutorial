@@ -6,7 +6,7 @@ import ErrorBoundry from '../error-boundry';
 
 import { ToDoData } from '@/types'
 
-import TodoService from '@/services/todo-service';
+import { todoService } from '@/services/todo-service';
 
 import AddItemForm from '../add-item-form';
 import styled from '@emotion/styled';
@@ -28,8 +28,6 @@ export default class TodoPage extends Component<{}, State> {
 
     nextId: Function = () => { };
 
-    todoService = new TodoService();
-
     constructor(props: any) {
         super(props);
 
@@ -43,13 +41,13 @@ export default class TodoPage extends Component<{}, State> {
     }
 
     componentDidMount() {
-        this.todoService.getAllTodos()
+        todoService.getAllTodos()
             .then((data) => {
                 this.setState({
                     todoData: data
                 });
 
-                this.nextId = this.todoService.getNextId(data);
+                this.nextId = todoService.getNextId(data);
             });
 
         getUsername().then(name => {
@@ -71,7 +69,7 @@ export default class TodoPage extends Component<{}, State> {
                 ...todoData.slice(idx + 1)
             ];
 
-            this.todoService.saveTodos(newTodoData);
+            todoService.saveTodos(newTodoData);
 
             return {
                 todoData: newTodoData
@@ -132,7 +130,7 @@ export default class TodoPage extends Component<{}, State> {
                 newTodo
             ];
 
-            this.todoService.saveTodos(newTodos);
+            todoService.saveTodos(newTodos);
 
             return {
                 todoData: newTodos
