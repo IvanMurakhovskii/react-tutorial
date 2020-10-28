@@ -1,7 +1,7 @@
 import { expectSaga } from "redux-saga-test-plan";
 import { getTodoData, saveNewTodo } from './TodosSaga';
 import { select } from 'redux-saga-test-plan/matchers';
-import { default as todoService } from '@/services/todo-service';
+import { todoService } from '@/services/todo-service';
 
 const todos = [
   {

@@ -6,7 +6,7 @@ import ErrorBoundry from '../error-boundry';
 
 import { ToDoData } from '@/types'
 
-import { default as todoService } from '@/services/todo-service';
+import { todoService } from '@/services/todo-service';
 
 import AddItemForm from '../add-item-form';
 import styled from '@emotion/styled';

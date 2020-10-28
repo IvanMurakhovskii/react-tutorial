@@ -1,4 +1,4 @@
-import { default as todoService } from '@/services/todo-service';
+import { todoService } from '@/services/todo-service';
 import { ToDoData } from "@/types";
 import { call, fork, put, takeEvery, select, takeLatest } from "redux-saga/effects"
 import { todo, TodoState } from "./Todos";

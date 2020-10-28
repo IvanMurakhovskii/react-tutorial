@@ -1,5 +1,5 @@
 import OrderEnum from '@/emums/order-enum';
-import { loadUsername, todo, TodoState } from './Todos';
+import { todo, TodoState } from './Todos';
 
 const todos = [
   {
