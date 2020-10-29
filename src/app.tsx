@@ -1,8 +1,8 @@
 import { PrivateRoute } from '@/utils';
 import React, { FC } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import LoginForm from '../login-form';
-import TodoPage from '../todo-page';
+import LoginForm from '@/modules/login-form';
+import TodoPage from '@/modules/todo-page';
 
 
 const App: FC = () => {

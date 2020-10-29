@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import TodoList from '../todo-list';
-import OrderSelect from '../order-select/order-select';
+import TodoList from '@/components/todo-list';
+import OrderSelect from '@/components/order-select/order-select';
 import OrderEnum from '@/emums/order-enum';
-import ErrorBoundry from '../error-boundry';
+import ErrorBoundry from '@/components/error-boundry';
 
 import { ToDoData } from '@/types'
 
 import { todoService } from '@/services/todo-service';
 
-import AddItemForm from '../add-item-form';
+import AddItemForm from '@/components/add-item-form';
 import styled from '@emotion/styled';
-import Header from '../header/intex';
+import Header from '@/components/header/intex';
 import { getUsername, isUserLoggedIn } from '@/utils';
 
 interface State {
