@@ -2,21 +2,21 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { fork } from "redux-saga/effects";
 import { auth } from './redux/Authentification';
 import { authSaga } from "./redux/AuthentificationSaga";
-import { todoSaga } from "./redux/TodosSaga";
+import { todoSaga } from "../modules/todo-page/saga";
 import { timer } from './redux/Timer'
-import { todo } from './redux/Todos'
+import { reducer as todoReducer } from '@/modules/todo-page/slice'
 import createSagaMiddleware from "redux-saga";
-
 
 const authReducer = auth.reducer;
 const timerReducer = timer.reducer;
-const todoReducer = todo.reducer;
 
 const reducer = combineReducers({
     authReducer,
     timerReducer,
     todoReducer
 });
+
+export type StoreState = ReturnType<typeof reducer>;
 
 function* rootSaga() {
     yield fork(authSaga);

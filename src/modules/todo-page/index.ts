@@ -1,3 +1,3 @@
-import TodoPage from './todo-page'
+import { Todos } from './todo-page'
 
-export default TodoPage;
+export default Todos;

@@ -1,8 +1,8 @@
 import { expectSaga } from "redux-saga-test-plan";
-import { getTodoData, loadTodos, saveNewTodo } from './TodosSaga';
+import { getTodoData, loadTodos, saveTodos } from './saga';
 import { select } from 'redux-saga-test-plan/matchers';
 import { todoService } from '@/services/todo-service';
-import { todo } from "./Todos";
+import { actions } from "./slice";
 
 const faker = require('faker/locale/ru');
 
@@ -32,7 +32,7 @@ const todos = [
 
 describe("Todos saga", () => {
   it("save new todo to storage", () => {
-    return expectSaga(saveNewTodo)
+    return expectSaga(saveTodos)
       .provide([[select(getTodoData), todos]])
       .call(todoService.saveTodos, todos)
       .run();
@@ -40,7 +40,7 @@ describe("Todos saga", () => {
   it("load todos from storage", () => {
     return expectSaga(loadTodos)
       .withState(todos)
-      .put(todo.actions.addTodos(todos))
+      .put(actions.addTodos(todos))
       .run();
   });
-})
+});

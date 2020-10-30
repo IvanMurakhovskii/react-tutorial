@@ -24,21 +24,31 @@ class TodoService {
         }
     }
 
-    getAllTodos = async (): Promise<ToDoData[]> => {
+    getAllTodos = async (): Promise<Array<ToDoData>> => {
         const todos = localStorage.getItem('todos');
-        return todos !== null ? JSON.parse(todos) : this.createRandomTodos();
+        return (todos !== null && todos !== 'undefined') ? JSON.parse(todos) : this.createRandomTodos();
     };
 
-    saveTodos(todos: ToDoData[]) {
+    saveTodos(todos: Array<ToDoData>) {
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    getNextId = (todos: ToDoData[]): Function => {
+    getNextId = (todos: Array<ToDoData>): Function => {
         let maxId = Math.max(...todos.map(item => item.id), 0);
 
         return function nextId() {
             console.log(maxId);
             return maxId += 1;
+        }
+    }
+
+    createTodoItem(label: string, id: number): ToDoData {
+        return {
+            label,
+            important: false,
+            done: false,
+            hidden: false,
+            id
         }
     }
 }
