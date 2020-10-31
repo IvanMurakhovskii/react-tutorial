@@ -7,7 +7,7 @@ import { todoService } from '@/services/todo-service';
 
 import AddItemForm from '@/components/add-item-form';
 import styled from '@emotion/styled';
-import Header from '@/components/header/intex';
+import Header from '@/components/header';
 import { isUserLoggedIn } from '@/utils';
 import { actions } from '@/modules/todo-page/slice'
 import { connect } from 'react-redux';

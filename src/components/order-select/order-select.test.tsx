@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from "enzyme";
 import OrderSelect from './order-select';
+import OrderEnum from '@/emums/order-enum';
 
 const mockMyEventHandler = jest.fn()
 
-const item = <OrderSelect onOrderChange={mockMyEventHandler} />
+const item = <OrderSelect onOrderChange={mockMyEventHandler} order={OrderEnum.ASC} />
 
 const wrapper = shallow(item);
 
