@@ -1,6 +1,6 @@
 import { todoService } from '@/services/todo-service';
 import { ToDoData } from "@/types";
-import { call, fork, put, takeEvery, select, takeLatest } from "redux-saga/effects"
+import { call, put, takeEvery, select } from "redux-saga/effects"
 import { todo, TodoState } from "./Todos";
 
 
@@ -17,6 +17,6 @@ export function* saveNewTodo() {
 }
 
 export function* todoSaga() {
-    fork(loadTodos);
+    yield takeEvery(todo.actions.addTodos.type, loadTodos);
     yield takeEvery(todo.actions.addTodo.type, saveNewTodo);
 }

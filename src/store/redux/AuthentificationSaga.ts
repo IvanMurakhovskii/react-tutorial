@@ -13,6 +13,6 @@ export function* loginUser({ payload }: ReturnType<typeof auth.actions.login>) {
 }
 
 export function* authSaga() {
-    yield takeEvery(auth.actions.login.type, loginUser)
+    yield takeEvery(auth.actions.login.type, loginUser);
     yield takeEvery(auth.actions.logout.type, logoutUser);
 }
