@@ -21,9 +21,9 @@ const TodoListItemContainer = styled.div`
 export interface TodoListProps {
   todos: Array<ToDoData>,
   order: OrderEnum
-  onDeleted(id: number): void,
-  onToggleImportant(id: number): void,
-  onToggleDone(id: number): void,
+  deleteItem(id: number): void,
+  toggleImportant(id: number): void,
+  toggleDone(id: number): void,
 }
 
 export interface TodoListState {
@@ -37,7 +37,7 @@ const TodoList: FC<TodoListProps> = (props: TodoListProps) => {
     setOrder(props.order);
   }, [props.order]);
 
-  const { todos, onDeleted, onToggleImportant, onToggleDone } = props;
+  const { todos, deleteItem, toggleImportant, toggleDone } = props;
 
   const orderedTodos = orderTodos(todos, order);
 
@@ -49,9 +49,9 @@ const TodoList: FC<TodoListProps> = (props: TodoListProps) => {
         <TodoListItemContainer >
           <Row
             left={<TodoListItem  {...itemProps}
-              onDeleted={() => onDeleted(id)}
-              onToggleImportant={() => onToggleImportant(id)}
-              onToggleDone={() => onToggleDone(id)}
+              deleteItem={() => deleteItem(id)}
+              toggleDone={() => toggleDone(id)}
+              toggleImportant={() => toggleImportant(id)}
             />}
             leftFlexBasic={70}
             right={<TodoTimer seconds={25 * 60} />}

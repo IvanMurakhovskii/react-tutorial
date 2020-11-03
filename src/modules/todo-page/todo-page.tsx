@@ -46,6 +46,8 @@ class TodoPage extends Component<Props, {}> {
     async componentDidMount() {
         this.props.loadTodos();
         this.props.getUseraname();
+
+        this.nextId = todoService.getNextId(this.props.todoData);
     }
 
     addItem = (label: string) => {
@@ -64,9 +66,9 @@ class TodoPage extends Component<Props, {}> {
                     <TodoList
                         todos={this.props.todoData}
                         order={this.props.order}
-                        onDeleted={this.props.delete}
-                        onToggleImportant={this.props.important}
-                        onToggleDone={this.props.done} />
+                        deleteItem={this.props.delete}
+                        toggleImportant={this.props.important}
+                        toggleDone={this.props.done} />
                     <AddItemForm addItem={this.addItem} />
                 </ErrorBoundry>
             </TodosStyle>

@@ -6,9 +6,9 @@ export interface TodoListItemProps {
     label: string,
     done: boolean,
     important: boolean,
-    onToggleImportant(): void,
-    onToggleDone(): void,
-    onDeleted(): void,
+    deleteItem(): void,
+    toggleImportant(): void,
+    toggleDone(): void,
 }
 
 const LabelStyle = styled.div<TodoListItemProps>`
@@ -51,13 +51,13 @@ class TodoListItem extends Component<TodoListItemProps, {}> {
 
     render() {
 
-        const { label, onToggleDone, onToggleImportant, onDeleted } = { ...this.props };
+        const { label, deleteItem, toggleDone, toggleImportant } = { ...this.props };
 
         return (
             <Container className="todo-list-item">
                 <LabelStyle {...this.props}>
                     <span
-                        onClick={onToggleDone}>
+                        onClick={toggleDone}>
                         {label}
                     </span>
                 </LabelStyle>
@@ -65,13 +65,13 @@ class TodoListItem extends Component<TodoListItemProps, {}> {
                 <ButtonContainer>
                     <Button className="btn-delete"
                         variant="contained" size="small" color="secondary"
-                        onClick={onDeleted}>
+                        onClick={deleteItem}>
                         Delete
                     </Button>
 
                     <Button className="btn-impotrant"
                         variant="contained" size="small" color="primary"
-                        onClick={onToggleImportant}>
+                        onClick={toggleImportant}>
                         Important
                     </Button>
 

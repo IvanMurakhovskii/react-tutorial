@@ -36,7 +36,11 @@ export default class AddItemForm extends Component<AddItemFormProps, AddItemForm
     onSubmit = (event: React.FormEvent<EventTarget>) => {
         event.preventDefault();
 
-        this.props.addItem(this.state.label);
+        const label = this.state.label;
+
+        if(Boolean(label)) {
+            this.props.addItem(this.state.label);
+        } 
 
         this.setState({ label: '' });
     }
