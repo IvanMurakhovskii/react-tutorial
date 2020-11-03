@@ -15,6 +15,7 @@ exports[`OrderSelect render item with data 1`] = `
       className="order-select"
       labelId="labelId"
       onChange={[Function]}
+      value="ASC"
     >
       <WithStyles(ForwardRef(MenuItem))
         key="1"

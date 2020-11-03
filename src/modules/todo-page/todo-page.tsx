@@ -1,160 +1,78 @@
 import React, { Component } from 'react';
 import TodoList from '@/components/todo-list';
 import OrderSelect from '@/components/order-select/order-select';
-import OrderEnum from '@/emums/order-enum';
 import ErrorBoundry from '@/components/error-boundry';
-
-import { ToDoData } from '@/types'
 
 import { todoService } from '@/services/todo-service';
 
 import AddItemForm from '@/components/add-item-form';
 import styled from '@emotion/styled';
-import Header from '@/components/header/intex';
-import { getUsername, isUserLoggedIn } from '@/utils';
+import Header from '@/components/header';
+import { isUserLoggedIn } from '@/utils';
+import { actions } from '@/modules/todo-page/slice'
+import { connect } from 'react-redux';
+import { StoreState } from '@/store/store';
 
-interface State {
-    todoData: ToDoData[],
-    order: OrderEnum,
-    username: string
-}
-
-const AppStyle = styled.div`
+const TodosStyle = styled.div`
     margin: 2rem auto 0 auto;
     width: 60%;
 `;
 
-export default class TodoPage extends Component<{}, State> {
+const mapStateToProps = ({ todoReducer }: StoreState) => ({
+    ...todoReducer
+});
+
+const mapDispatchToProps = {
+    addTodo: actions.addTodo,
+    loadTodos: actions.loadTodos,
+    changeOrder: actions.changeOrder,
+    delete: actions.delete,
+    done: actions.done,
+    important: actions.important,
+    getUseraname: actions.getUsername
+}
+
+export type Props = ReturnType<typeof mapStateToProps> &
+    typeof mapDispatchToProps;
+
+class TodoPage extends Component<Props, {}> {
 
     nextId: Function = () => { };
 
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
-
-        this.state = {
-            todoData: [],
-            order: OrderEnum.ASC,
-            username: ''
-        };
-
-        this.deleteItem = this.deleteItem.bind(this);
     }
 
     componentDidMount() {
-        todoService.getAllTodos()
-            .then((data) => {
-                this.setState({
-                    todoData: data
-                });
+        this.props.loadTodos();
+        this.props.getUseraname();
 
-                this.nextId = todoService.getNextId(data);
-            });
-
-        getUsername().then(name => {
-            if (name != null) {
-                this.setState({
-                    username: name
-                });
-            }
-        });
-    }
-
-    deleteItem(id: number) {
-
-        this.setState(({ todoData }) => {
-            const idx = todoData.findIndex((el) => el.id === id);
-
-            const newTodoData = [
-                ...todoData.slice(0, idx),
-                ...todoData.slice(idx + 1)
-            ];
-
-            todoService.saveTodos(newTodoData);
-
-            return {
-                todoData: newTodoData
-            }
-        });
-    };
-
-    toggleProperty(arr: ToDoData[], id: number, propName: "important" | "done") {
-        const idx = arr.findIndex((el) => el.id === id);
-
-        const oldItem = arr[idx];
-        const newItem = { ...oldItem, [propName]: !oldItem[propName] };
-
-        return [
-            ...arr.slice(0, idx),
-            newItem,
-            ...arr.slice(idx + 1)
-        ];
-    }
-
-    onToggleImportant = (id: number) => {
-        this.setState(({ todoData }) => {
-            return {
-                todoData: this.toggleProperty(todoData, id, 'important')
-            }
-        });
-    };
-
-    onToggleDone = (id: number) => {
-        this.setState(({ todoData }) => {
-            return {
-                todoData: this.toggleProperty(todoData, id, 'done')
-            }
-        });
-    };
-
-    createTodoItem(label: string) {
-        return {
-            label,
-            important: false,
-            done: false,
-            hidden: false,
-            id: this.nextId()
-        }
-    }
-
-    onOrderChange = (order: OrderEnum) => {
-        this.setState({ order: order })
     }
 
     addItem = (label: string) => {
-
-        const newTodo = this.createTodoItem(label);
-
-        this.setState(({ todoData }) => {
-            const newTodos = [
-                ...todoData,
-                newTodo
-            ];
-
-            todoService.saveTodos(newTodos);
-
-            return {
-                todoData: newTodos
-            };
-        });
+        const newTodo = todoService.createTodoItem(label, this.nextId());
+        this.props.addTodo(newTodo);
     }
 
     render() {
         return (
-            <AppStyle>
-                <Header username={this.state.username} isAuth={isUserLoggedIn()} />
+            <TodosStyle>
+                <Header username={this.props.username} isAuth={isUserLoggedIn()} />
                 <ErrorBoundry>
                     <OrderSelect
-                        onOrderChange={this.onOrderChange}
-                        order={this.state.order} />
+                        onOrderChange={this.props.changeOrder}
+                        order={this.props.order} />
                     <TodoList
-                        todos={this.state.todoData}
-                        order={this.state.order}
-                        onDeleted={this.deleteItem}
-                        onToggleImportant={this.onToggleImportant}
-                        onToggleDone={this.onToggleDone} />
+                        todos={this.props.todoData}
+                        order={this.props.order}
+                        onDeleted={this.props.delete}
+                        onToggleImportant={this.props.important}
+                        onToggleDone={this.props.done} />
                     <AddItemForm addItem={this.addItem} />
                 </ErrorBoundry>
-            </AppStyle>
+            </TodosStyle>
         );
     };
 };
+
+export const Todos = connect(mapStateToProps, mapDispatchToProps)(TodoPage);

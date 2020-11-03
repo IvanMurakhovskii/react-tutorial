@@ -1,5 +1,5 @@
 import OrderEnum from '@/emums/order-enum';
-import { todo, TodoState } from './Todos';
+import { actions, reducer, TodoState } from './slice';
 
 const todos = [
   {
@@ -37,24 +37,22 @@ const initialState: TodoState = {
   todoData: todos,
   order: OrderEnum.ASC,
   username: 'user',
-  loading: false,
-  hasError: false
 };
 
 describe("Todos reducer", () => {
   it("set inportant", () => {
-    expect(todo.reducer(initialState, todo.actions.important(1)).todoData[0].important).toBeTruthy();
+    expect(reducer(initialState, actions.important(1)).todoData[0].important).toBeTruthy();
   });
   it("set done", () => {
-    expect(todo.reducer(initialState, todo.actions.done(2)).todoData[1].done).toBeFalsy();
+    expect(reducer(initialState, actions.done(2)).todoData[1].done).toBeFalsy();
   });
   it("remove todos", () => {
-    expect(todo.reducer(initialState, todo.actions.delete(2)).todoData.length).toEqual(2);
+    expect(reducer(initialState, actions.delete(2)).todoData.length).toEqual(2);
   });
   it("chenge order", () => {
-    expect(todo.reducer(initialState, todo.actions.changeOrder(OrderEnum.IMPORTANT)).order).toEqual(OrderEnum.IMPORTANT);
+    expect(reducer(initialState, actions.changeOrder(OrderEnum.IMPORTANT)).order).toEqual(OrderEnum.IMPORTANT);
   });
   it("add new todo", () => {
-    expect(todo.reducer(initialState, todo.actions.addTodo(newTodo)).todoData[3]).toEqual(newTodo);
+    expect(reducer(initialState, actions.addTodo(newTodo)).todoData[3]).toEqual(newTodo);
   });
 });

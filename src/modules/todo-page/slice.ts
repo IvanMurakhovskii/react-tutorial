@@ -1,24 +1,21 @@
 import OrderEnum from "@/emums/order-enum";
 import { ToDoData } from "@/types";
+import { getUsername } from "@/utils";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type TodoState = {
-    todoData: ToDoData[],
+    todoData: Array<ToDoData>,
     order: OrderEnum,
-    username: string,
-    loading: boolean,
-    hasError: boolean
+    username: string
 }
 
 export const initialState: TodoState = {
     todoData: [],
     order: OrderEnum.ASC,
-    username: '',
-    loading: false,
-    hasError: false
+    username: ''
 };
 
-export const todo = createSlice({
+const todo = createSlice({
     name: "todo",
     initialState: initialState,
     reducers: {
@@ -69,14 +66,22 @@ export const todo = createSlice({
 
             state.todoData = newTodos;
         },
-        addTodos: (state, action: PayloadAction<ToDoData[]>) => {
-            state.todoData = action.payload;
+        addTodos: (state, action: PayloadAction<Array<ToDoData>>) => {
+            if (action.payload !== undefined) {
+                state.todoData = action.payload;
+            }
         },
         changeOrder: (state, action: PayloadAction<OrderEnum>) => {
             state.order = action.payload;
         },
         setUsername: (state, action: PayloadAction<OrderEnum>) => {
             state.username = action.payload;
+        },
+        getUsername: () => {
+        },
+        loadTodos: () => {
         }
     }
 });
+
+export const { actions, reducer } = todo;
