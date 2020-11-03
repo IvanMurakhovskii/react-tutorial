@@ -18,6 +18,7 @@ const wrapper = mount(item);
 
 describe("AddItemForm", () => {
     it('calls onSubmit function have been called once', () => {
+        wrapper.setState({label: "test"});
         wrapper.find(AddItemForm).simulate('submit');
         expect(mockMyEventHandler).toHaveBeenCalledTimes(1);
     });

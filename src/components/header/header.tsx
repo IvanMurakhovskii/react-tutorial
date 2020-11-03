@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { AppBar, Button, createStyles, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { logOut } from '@/utils/LogInUtil'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
-*/
-
 import React from 'react';
 import { mount } from "enzyme";
 import TodoList, { TodoListProps } from './todo-list';
@@ -39,9 +35,9 @@ const todos = [
 const props: TodoListProps = {
   todos: todos,
   order: OrderEnum.ASC,
-  onDeleted: onDeletedMock,
-  onToggleDone: onToggleDoneMock,
-  onToggleImportant: onToggleImportantMock
+  deleteItem: onDeletedMock,
+  toggleImportant: onToggleImportantMock,
+  toggleDone: onToggleDoneMock
 }
 
 const item = <TodoList {...props} />

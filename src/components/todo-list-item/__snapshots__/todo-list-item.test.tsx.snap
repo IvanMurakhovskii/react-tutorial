@@ -5,12 +5,12 @@ exports[`TodoListItem render item with data 1`] = `
   className="todo-list-item"
 >
   <Styled(div)
+    deleteItem={[MockFunction]}
     done={false}
     important={true}
     label="todo"
-    onDeleted={[MockFunction]}
-    onToggleDone={[MockFunction]}
-    onToggleImportant={[MockFunction]}
+    toggleDone={[MockFunction]}
+    toggleImportant={[MockFunction]}
   >
     <span
       onClick={[MockFunction]}
