@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { AppBar, Button, createStyles, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { logOut } from '@/utils/LogInUtil'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/dist/client/router';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,15 +32,15 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = (props) => {
 
     const classes = useStyles();
-    const history = useHistory();
+    const router = useRouter();
 
     const onClickLogOutHandle = () => {
         logOut();
-        history.push('/login');
+        router.replace('/login');
     }
 
     const onClickLoginHandle = () => {
-        history.push('/login');
+        router.replace('/login');
     }
 
     const loguotElement = (

@@ -37,7 +37,6 @@ class TodoService {
         let maxId = Math.max(...todos.map(item => item.id), 0);
 
         return function nextId() {
-            console.log(maxId);
             return maxId += 1;
         }
     }
