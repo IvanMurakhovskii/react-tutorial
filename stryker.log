@@ -1,0 +1,624 @@
+20:03:31 (34292) INFO ConfigReader Using stryker.conf.js
+20:03:31 (34292) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress","html"]
+20:03:31 (34292) DEBUG ConfigReader Loading config C:\Users\Tom\Documents\react\calculator\stryker.conf.js
+20:03:31 (34292) DEBUG ConfigReader Loaded config: {
+  "testRunner": "jest",
+  "coverageAnalysis": "off",
+  "mutate": [
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
+  ],
+  "timeoutMS": 60000,
+  "jest": {
+    "enableFindRelatedTests": false
+  },
+  "allowConsoleColors": true,
+  "checkers": [],
+  "maxTestRunnerReuse": 0,
+  "commandRunner": {
+    "command": "npm test"
+  },
+  "clearTextReporter": {
+    "allowColor": true,
+    "logTests": true,
+    "maxTestsToLog": 3
+  },
+  "dashboard": {
+    "baseUrl": "https://dashboard.stryker-mutator.io/api/reports",
+    "reportType": "full"
+  },
+  "eventReporter": {
+    "baseDir": "reports/mutation/events"
+  },
+  "fileLogLevel": "trace",
+  "logLevel": "debug",
+  "maxConcurrentTestRunners": 9007199254740991,
+  "mutator": {
+    "plugins": null,
+    "excludedMutations": []
+  },
+  "plugins": [
+    "@stryker-mutator/*"
+  ],
+  "appendPlugins": [],
+  "reporters": [
+    "clear-text",
+    "progress",
+    "html"
+  ],
+  "disableTypeChecks": "{test,src,lib}/**/*.{js,ts,jsx,tsx,html,vue}",
+  "symlinkNodeModules": true,
+  "tempDirName": ".stryker-tmp",
+  "cleanTempDir": true,
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "timeoutFactor": 1.5,
+  "tsconfigFile": "tsconfig.json",
+  "warnings": true,
+  "configFile": "C:\\Users\\Tom\\Documents\\react\\calculator\\stryker.conf.js"
+}
+20:03:31 (34292) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:31 (34292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:31 (34292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:31 (34292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:31 (34292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:31 (34292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:31 (34292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:31 (34292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:31 (34292) DEBUG buildSchemaWithPluginContributions Contributing 1 schemas from plugins to options validation.
+20:03:31 (34292) INFO InputFileResolver Found 34 of 109 file(s) to be mutated.
+20:03:31 (34292) DEBUG InputFileResolver All input files: [
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\.eslintignore",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\.eslintrc",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\.gitignore",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\.prettierignore",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\.storybook\\main.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\README.md",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\__mocks__\\styleMock.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\babel.config.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\internals\\jestSettings.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\jest.config.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\next-env.d.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\package-lock.json",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\package.json",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\app.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\calculate-type.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\helper.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\helper.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\math.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\math.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\parser.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\parser.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\reverse-polish-notation.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\reverse-polish-notation.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\runner.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\runner.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\types.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\validator.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\validator.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\add-item-form\\add-item-form.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\add-item-form\\add-item-form.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\add-item-form\\add-item-form.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\add-item-form\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\error-boundry\\error-boundry.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\error-boundry\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\__snapshots__\\header.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\header.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\header.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\header.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\__snapshots__\\order-select.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\order-select.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\order-select.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\order-select.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\row\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\row\\row.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\__snapshots__\\todo-list-item.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\todo-list-item.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\todo-list-item.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\todo-list-item.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\__snapshots__\\todo-list.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\todo-list.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\todo-list.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\todo-list.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\__snapshots__\\todo-timer.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\todo-timer.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\todo-timer.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\todo-timer.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\emums\\order-enum.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_1.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_1.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_2.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_2.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_3.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_1_3.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_2_1.test..tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_3\\level_2_1.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_8\\cleanFunction.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_8\\immutability.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\index.html",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\index.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\__snapshots__\\login-form.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\login-form.stories.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\login-form.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\login-form.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\__snapshots__\\todo-page.test.tsx.snap",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\saga.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\saga.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\slice.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\slice.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\todo-page.test.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\todo-page.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\pages\\_app.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\pages\\index.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\pages\\login.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\services\\todo-service.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Authentification.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Authentification.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\AuthentificationSaga.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\AuthentificationSaga.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Timer.test.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Timer.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\store.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\types\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\types\\types.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\LogInUtil.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\PrivateRoute.tsx",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\TodoOrderUtil.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\stryker.conf.js",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\stryker.log",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\tsconfig.json",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\webpack.config.js"
+]
+20:03:31 (34292) DEBUG InputFileResolver Files to mutate: [
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\calculate-type.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\helper.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\math.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\parser.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\reverse-polish-notation.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\runner.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\types.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\calc\\validator.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\add-item-form\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\error-boundry\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\header\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\order-select\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\row\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list-item\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-list\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\components\\todo-timer\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\emums\\order-enum.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_8\\cleanFunction.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\homework_8\\immutability.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\login-form\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\saga.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\modules\\todo-page\\slice.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\services\\todo-service.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Authentification.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\AuthentificationSaga.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\redux\\Timer.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\store\\store.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\types\\index.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\types\\types.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\LogInUtil.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\TodoOrderUtil.ts",
+  "C:\\Users\\Tom\\Documents\\react\\calculator\\src\\utils\\index.ts"
+]
+20:03:31 (34292) DEBUG TemporaryDirectory Using temp directory "C:\Users\Tom\Documents\react\calculator\.stryker-tmp"
+20:03:31 (34292) DEBUG Instrumenter Instrumenting 34 source files with mutants
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\calculate-type.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\helper.ts (20 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\index.ts (42 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\math.ts (42 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\parser.ts (1 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\reverse-polish-notation.ts (51 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\runner.ts (16 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\types.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\calc\validator.ts (170 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\add-item-form\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\error-boundry\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\header\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\order-select\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\row\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\todo-list-item\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\todo-list\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\components\todo-timer\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\emums\order-enum.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\homework_8\cleanFunction.ts (36 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\homework_8\immutability.ts (24 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\modules\login-form\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\modules\todo-page\index.ts (0 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\modules\todo-page\saga.ts (5 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\modules\todo-page\slice.ts (40 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\services\todo-service.ts (32 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\store\redux\Authentification.ts (7 mutant(s))
+20:03:32 (34292) DEBUG Instrumenter Instrumented src\store\redux\AuthentificationSaga.ts (3 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\store\redux\Timer.ts (8 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\store\store.ts (7 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\types\index.ts (0 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\types\types.ts (0 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\utils\LogInUtil.ts (20 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\utils\TodoOrderUtil.ts (23 mutant(s))
+20:03:33 (34292) DEBUG Instrumenter Instrumented src\utils\index.ts (0 mutant(s))
+20:03:33 (34292) INFO Instrumenter Instrumented 34 source file(s) with 547 mutant(s)
+20:03:33 (34292) DEBUG TSConfigPreprocessor Rewriting file File {
+  name: 'C:\\Users\\Tom\\Documents\\react\\calculator\\tsconfig.json',
+  _content: <Buffer 7b 0d 0a 20 20 22 63 6f 6d 70 69 6c 65 72 4f 70 74 69 6f 6e 73 22 3a 20 7b 0d 0a 20 20 20 20 22 62 61 73 65 55 72 6c 22 3a 20 22 2e 2f 22 2c 0d 0a 20 ... 668 more bytes>,
+  _textContent: '{\r\n' +
+    '  "compilerOptions": {\r\n' +
+    '    "baseUrl": "./",\r\n' +
+    '    "paths": {\r\n' +
+    '      "@/*": [\r\n' +
+    '        "src/*"\r\n' +
+    '      ]\r\n' +
+    '    },\r\n' +
+    '    "target": "es5",\r\n' +
+    '    "module": "commonjs",\r\n' +
+    '    "jsx": "preserve",\r\n' +
+    '    "sourceMap": true,\r\n' +
+    '    "strict": true,\r\n' +
+    '    "esModuleInterop": true,\r\n' +
+    '    "allowSyntheticDefaultImports": true,\r\n' +
+    '    "lib": [\r\n' +
+    '      "dom",\r\n' +
+    '      "dom.iterable",\r\n' +
+    '      "esnext"\r\n' +
+    '    ],\r\n' +
+    '    "allowJs": true,\r\n' +
+    '    "skipLibCheck": true,\r\n' +
+    '    "forceConsistentCasingInFileNames": true,\r\n' +
+    '    "noEmit": true,\r\n' +
+    '    "moduleResolution": "node",\r\n' +
+    '    "resolveJsonModule": true,\r\n' +
+    '    "isolatedModules": true\r\n' +
+    '  },\r\n' +
+    '  "include": [\r\n' +
+    '    "next-env.d.ts",\r\n' +
+    '    "**/*.ts",\r\n' +
+    '    "**/*.tsx"\r\n' +
+    '  ],\r\n' +
+    '  "exclude": [\r\n' +
+    '    "node_modules"\r\n' +
+    '  ]\r\n' +
+    '}\r\n'
+}
+20:03:33 (34292) INFO ConcurrencyTokenProvider Creating 7 test runner process(es).
+20:03:33 (34292) DEBUG Sandbox Creating a sandbox for files in C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:33 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 36160
+20:03:33 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 33664
+20:03:34 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:34 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:34 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 18044
+20:03:34 (34292) INFO DryRunExecutor Starting initial test run. This may take a while.
+20:03:34 (34292) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+20:03:33 (36160) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:33 (36160) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:33 (36160) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:33 (36160) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:33 (36160) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:33 (36160) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:34 (36160) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:34 (36160) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:34 (36160) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:34 (36160) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:34 (36160) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:34 (36160) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:34 (36160) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:34 (36160) TRACE JestGreaterThan25Adapter Invoking Jest with config {"roots":["<rootDir>/src"],"clearMocks":true,"coverageDirectory":"coverage","testEnvironment":"node","setupFilesAfterEnv":["<rootDir>/internals/jestSettings.js"],"transform":{"^.+\\.(js|jsx|ts|tsx)$":"<rootDir>/node_modules/babel-jest"},"moduleNameMapper":{"\\.(css)$":"<rootDir>/__mocks__/styleMock.js","^@/(.*)$":"<rootDir>/src/$1"},"snapshotSerializers":["enzyme-to-json/serializer"],"collectCoverage":false,"verbose":false,"bail":false,"notify":false,"rootDir":"C:\\Users\\Tom\\Documents\\react\\calculator\\.stryker-tmp\\sandbox2201154","reporters":[]}
+20:03:33 (33664) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:33 (33664) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:33 (33664) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:33 (33664) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:33 (33664) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:33 (33664) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:34 (33664) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:34 (33664) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:34 (33664) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:34 (33664) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:34 (33664) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:34 (33664) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:34 (33664) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:34 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 27768
+20:03:35 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:35 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 36176
+20:03:34 (18044) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:34 (18044) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:34 (18044) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:34 (18044) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:34 (18044) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:34 (18044) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:35 (18044) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:35 (18044) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:35 (18044) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:35 (18044) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:35 (18044) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:35 (18044) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:35 (18044) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:35 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:35 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 32292
+20:03:34 (27768) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:34 (27768) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:34 (27768) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:34 (27768) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:34 (27768) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:34 (27768) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:35 (27768) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:35 (27768) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:35 (27768) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:35 (27768) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:35 (27768) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:35 (27768) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:35 (27768) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:36 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:36 (34292) DEBUG ChildProcessProxy Starting C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\test-runner\child-process-test-runner-worker.js in child process 29936
+20:03:35 (36176) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:35 (36176) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:35 (36176) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:35 (36176) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:35 (36176) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:35 (36176) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:36 (36176) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:36 (36176) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:36 (36176) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:36 (36176) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:36 (36176) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:36 (36176) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:36 (36176) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:36 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:35 (32292) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:35 (32292) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:35 (32292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:35 (32292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:35 (32292) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:35 (32292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:36 (32292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:36 (32292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:36 (32292) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:36 (32292) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:36 (32292) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:36 (32292) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:36 (32292) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:37 (34292) TRACE ChildProcessProxy The @stryker-mutator/typescript package does not have any function in Stryker 4.0. Please remove it from your devDependencies.
+
+20:03:36 (29936) DEBUG ChildProcessProxyWorker Changing current working directory for this process to C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:36 (29936) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator
+20:03:36 (29936) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+20:03:36 (29936) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+20:03:36 (29936) DEBUG PluginLoader Loading plugin "C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+20:03:36 (29936) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\instrumenter
+20:03:37 (29936) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\jest-runner
+20:03:37 (29936) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\typescript
+20:03:37 (29936) DEBUG PluginLoader Loading plugins C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\reporters\index.js
+20:03:37 (29936) DEBUG CustomJestConfigLoader Read Jest config from C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\jest.config.js
+20:03:37 (29936) DEBUG JestTestRunner Merging file-based config {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "clearMocks": true,
+  "coverageDirectory": "coverage",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": [
+    "<rootDir>/internals/jestSettings.js"
+  ],
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+} 
+      with custom config {}
+      and default (internal) stryker config [object Object]
+20:03:37 (29936) DEBUG JestTestRunner Running jest without --findRelatedTests flag. Set jest.enableFindRelatedTests to true to run only relevant tests on every mutant.
+20:03:37 (29936) DEBUG JestTestRunner Project root is C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154
+20:03:49 (34292) TRACE ChildProcessProxy (node:36160) UnhandledPromiseRejectionWarning: ReferenceError: document is not defined
+(node:36160) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 6)
+
+20:03:49 (34292) TRACE ChildProcessProxy (node:36160) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+
+20:03:50 (34292) ERROR DryRunExecutor One or more tests resulted in an error:
+	undefinedIt looks like you called `mount()` without a global document being loaded. Error: It looks like you called `mount()` without a global document being loaded.
+    at new ReactWrapper (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\ReactWrapper.js:103:13)
+    at mount (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\mount.js:10:10)
+    at Object.<anonymous> (C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\src\components\todo-list\todo-list.test.tsx:45:17)
+    at Runtime._execModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:1217:24)
+    at Runtime._loadModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:828:12)
+    at Runtime.requireModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:679:10)
+    at jasmine2 (C:\Users\Tom\Documents\react\calculator\node_modules\jest-jasmine2\build\index.js:230:13)
+    at runTestInternal (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:375:22)
+    at runTest (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:455:34), undefinedIt looks like you called `mount()` without a global document being loaded. Error: It looks like you called `mount()` without a global document being loaded.
+    at new ReactWrapper (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\ReactWrapper.js:103:13)
+    at mount (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\mount.js:10:10)
+    at Object.<anonymous> (C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\src\components\add-item-form\add-item-form.test.tsx:18:17)
+    at Runtime._execModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:1217:24)
+    at Runtime._loadModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:828:12)
+    at Runtime.requireModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:679:10)
+    at jasmine2 (C:\Users\Tom\Documents\react\calculator\node_modules\jest-jasmine2\build\index.js:230:13)
+    at runTestInternal (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:375:22)
+    at runTest (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:455:34), undefinedIt looks like you called `mount()` without a global document being loaded. Error: It looks like you called `mount()` without a global document being loaded.
+    at new ReactWrapper (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\ReactWrapper.js:103:13)
+    at mount (C:\Users\Tom\Documents\react\calculator\node_modules\enzyme\src\mount.js:10:10)
+    at Object.<anonymous> (C:\Users\Tom\Documents\react\calculator\.stryker-tmp\sandbox2201154\src\modules\login-form\login-form.test.tsx:8:17)
+    at Runtime._execModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:1217:24)
+    at Runtime._loadModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:828:12)
+    at Runtime.requireModule (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runtime\build\index.js:679:10)
+    at jasmine2 (C:\Users\Tom\Documents\react\calculator\node_modules\jest-jasmine2\build\index.js:230:13)
+    at runTestInternal (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:375:22)
+    at runTest (C:\Users\Tom\Documents\react\calculator\node_modules\jest-runner\build\runTest.js:455:34)
+20:03:50 (34292) DEBUG Stryker Not removing the temp dir because an error occurred
+20:03:50 (34292) ERROR Stryker Error: Something went wrong in the initial test run
+    at DryRunExecutor.validateResultCompleted (C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\process\3-dry-run-executor.js:64:15)
+    at DryRunExecutor.timeDryRun (C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\process\3-dry-run-executor.js:72:14)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async DryRunExecutor.execute (C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\process\3-dry-run-executor.js:37:42)
+    at async Stryker.runMutationTest (C:\Users\Tom\Documents\react\calculator\node_modules\@stryker-mutator\core\src\stryker.js:36:53)
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 36160
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 18044
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 33664
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 27768
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 32292
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 36176
+20:03:50 (34292) DEBUG ChildProcessProxy Disposing of worker process 29936
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 36160
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 18044
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 33664
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 27768
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 32292
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 36176
+20:03:50 (34292) DEBUG ChildProcessProxy Kill 29936

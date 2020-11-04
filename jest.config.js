@@ -14,6 +14,5 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  testRunner: 'jest',
-  coverageAnalysis: 'off'
+  testEnvironment: "jsdom"
 };
