@@ -13,5 +13,7 @@ module.exports = {
     "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  snapshotSerializers: ['enzyme-to-json/serializer']
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  testRunner: 'jest',
+  coverageAnalysis: 'off'
 };
