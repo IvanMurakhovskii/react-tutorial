@@ -1,13 +1,14 @@
 import { NextPageContext } from "next";
 import Cookies from "universal-cookie";
 
-export const logIn = async (username: string) => {
-    const cookies = new Cookies();
-    cookies.set("username", username);
+const cookies = new Cookies();
+
+export const logIn = async (userName: string) => {
+    cookies.set("username", userName);
 }
 
 export const logOut = async () => {
-    document.cookie = `username=`;
+    cookies.remove("username");
 }
 
 export const isUserLoggedIn = (cookie?: string): boolean => {
@@ -19,7 +20,7 @@ export function isUserAuth(username?: string) {
     return Boolean(username);
 }
 
-export const getUsername = async (cookie?: string): Promise<string> => {
+export const getUsername = (cookie?: string): string => {
     const cookies = new Cookies(cookie);
     const username = cookies.get('username');
     return username !== null ? username : '';

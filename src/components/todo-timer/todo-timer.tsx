@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 
 interface TodoTimerState {
     seconds: number
+    isTimerStart: boolean
 }
 
 export interface TodoTimerProps {
@@ -40,7 +41,10 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
     constructor(props: TodoTimerProps) {
         super(props);
 
-        this.state = { seconds: this.props.seconds };
+        this.state = { 
+            seconds: this.props.seconds, 
+            isTimerStart: false 
+        };
     }
 
     componentWillUnmount() {
@@ -71,11 +75,17 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
     startTimer = (): void => {
         if (this.intervalId !== undefined) clearInterval(this.intervalId);
         this.intervalId = window.setInterval(this.updateTimer, 1000);
+
+        this.setState((state) => {
+            const newState = {...state, isTimerStart: true}
+            return newState;
+        })
+
     }
 
     resetTimer = (): void => {
         clearInterval(this.intervalId);
-        this.setState({ seconds: this.props.seconds });
+        this.setState({ seconds: this.props.seconds, isTimerStart: false });
     }
 
     render() {
@@ -111,7 +121,8 @@ class TodoTimer extends Component<TodoTimerProps, TodoTimerState> {
                 <ButtonContainer>
                     <Button className="btn-start"
                         variant="contained" size="small" color="primary"
-                        onClick={this.startTimer}>
+                        onClick={this.startTimer}
+                        disabled={this.state.isTimerStart}>
                         Start
                     </Button>
 
