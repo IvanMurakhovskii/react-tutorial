@@ -1,10 +1,9 @@
 import { NextPageContext } from "next";
-import Router from "next/router";
 import Cookies from "universal-cookie";
 
-export const logIn = async (userName: string) => {
+export const logIn = async (username: string) => {
     const cookies = new Cookies();
-    cookies.set("username", userName);
+    cookies.set("username", username);
 }
 
 export const logOut = async () => {
@@ -29,6 +28,6 @@ export const getUsername = async (cookie?: string): Promise<string> => {
 export function redirectIfNotAuth(ctx: NextPageContext) {
     const cookie = ctx.req?.headers.cookie;
     if (!isUserLoggedIn(cookie)) {
-      ctx.res?.writeHead(302, { Location: '/login' }).end();
+        ctx.res?.writeHead(302, { Location: '/login' }).end();
     }
 }

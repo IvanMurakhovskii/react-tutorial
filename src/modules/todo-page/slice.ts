@@ -73,7 +73,7 @@ const todo = createSlice({
         changeOrder: (state, action: PayloadAction<OrderEnum>) => {
             state.order = action.payload;
         },
-        setUsername: (state, action: PayloadAction<OrderEnum>) => {
+        setUsername: (state, action: PayloadAction<string>) => {
             state.username = action.payload;
         },
         getUsername: () => {
