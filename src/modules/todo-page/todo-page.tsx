@@ -43,7 +43,7 @@ class TodoPage extends Component<Props, {}> {
         super(props);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         this.props.loadTodos();
         this.props.getUseraname();
 
