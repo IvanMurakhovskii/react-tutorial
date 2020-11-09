@@ -6,6 +6,7 @@ import { todoSaga } from "../modules/todo-page/saga";
 import { timer } from './redux/Timer'
 import { reducer as todoReducer } from '@/modules/todo-page/slice'
 import createSagaMiddleware from "redux-saga";
+import { createWrapper } from "next-redux-wrapper";
 
 const authReducer = auth.reducer;
 const timerReducer = timer.reducer;
@@ -30,7 +31,13 @@ export const store = configureStore({
     middleware: [sagaMiddleware]
 });
 
-sagaMiddleware.run(rootSaga);
+export const initStore = () => {
+    const store = configureStore({reducer,middleware: [sagaMiddleware]});
+    sagaMiddleware.run(rootSaga);
+    return store;
+};
+
+export const wrapper = createWrapper(initStore);
 
 
 

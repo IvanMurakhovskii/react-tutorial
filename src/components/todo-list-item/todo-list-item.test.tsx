@@ -10,9 +10,9 @@ const props: TodoListItemProps = {
     label: "todo",
     important: true,
     done: false,
-    onDeleted: onDeletedMock,
-    onToggleDone: onToggleDoneMock,
-    onToggleImportant: onToggleImportantMock
+    deleteItem: onDeletedMock,
+    toggleImportant: onToggleImportantMock,
+    toggleDone: onToggleDoneMock
 }
 
 const item = <TodoListItem {...props} />

@@ -1,6 +1,5 @@
 import OrderEnum from "@/emums/order-enum";
 import { ToDoData } from "@/types";
-import { getUsername } from "@/utils";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type TodoState = {

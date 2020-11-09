@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { logIn } from '@/utils';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,14 +28,14 @@ type inputEvent = React.ChangeEvent<HTMLInputElement>;
 
 const LoginForm: FC<{}> = () => {
     const classes = useStyles();
-    const history = useHistory();
+    const router = useRouter();
     const [state, setState] = useState({ username: '' });
 
     const handleSubmit = useCallback((_event) => {
         _event.preventDefault();
 
         logIn(state.username);
-        history.push("/");
+        router.replace("/");
     }, [state.username]);
 
     const handleChange = (event: inputEvent) => {

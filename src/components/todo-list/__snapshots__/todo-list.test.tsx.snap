@@ -2,9 +2,7 @@
 
 exports[`TodoList render item with data 1`] = `
 <TodoList
-  onDeleted={[MockFunction]}
-  onToggleDone={[MockFunction]}
-  onToggleImportant={[MockFunction]}
+  deleteItem={[MockFunction]}
   order="ASC"
   todos={
     Array [
@@ -31,6 +29,8 @@ exports[`TodoList render item with data 1`] = `
       },
     ]
   }
+  toggleDone={[MockFunction]}
+  toggleImportant={[MockFunction]}
 >
   <div
     className="list-group todo-list"
@@ -45,13 +45,13 @@ exports[`TodoList render item with data 1`] = `
           <Row
             left={
               <TodoListItem
+                deleteItem={[Function]}
                 done={false}
                 hidden={false}
                 important={false}
                 label="test 1"
-                onDeleted={[Function]}
-                onToggleDone={[Function]}
-                onToggleImportant={[Function]}
+                toggleDone={[Function]}
+                toggleImportant={[Function]}
               />
             }
             leftFlexBasic={70}
@@ -69,13 +69,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={false}
                       label="test 1"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}
@@ -90,13 +90,13 @@ exports[`TodoList render item with data 1`] = `
                     className="css-16rerus"
                   >
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={false}
                       label="test 1"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     >
                       <Styled(div)
                         className="todo-list-item"
@@ -105,21 +105,18 @@ exports[`TodoList render item with data 1`] = `
                           className="todo-list-item css-1wb1rag"
                         >
                           <Styled(div)
+                            deleteItem={[Function]}
                             done={false}
                             hidden={false}
                             important={false}
                             label="test 1"
-                            onDeleted={[Function]}
-                            onToggleDone={[Function]}
-                            onToggleImportant={[Function]}
+                            toggleDone={[Function]}
+                            toggleImportant={[Function]}
                           >
                             <div
                               className="css-mwp02k"
                               hidden={false}
                               label="test 1"
-                              onDeleted={[Function]}
-                              onToggleDone={[Function]}
-                              onToggleImportant={[Function]}
                             >
                               <span
                                 onClick={[Function]}
@@ -398,13 +395,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={false}
                       label="test 1"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}
@@ -987,13 +984,13 @@ exports[`TodoList render item with data 1`] = `
           <Row
             left={
               <TodoListItem
+                deleteItem={[Function]}
                 done={true}
                 hidden={false}
                 important={false}
                 label="test 2"
-                onDeleted={[Function]}
-                onToggleDone={[Function]}
-                onToggleImportant={[Function]}
+                toggleDone={[Function]}
+                toggleImportant={[Function]}
               />
             }
             leftFlexBasic={70}
@@ -1011,13 +1008,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={true}
                       hidden={false}
                       important={false}
                       label="test 2"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}
@@ -1032,13 +1029,13 @@ exports[`TodoList render item with data 1`] = `
                     className="css-16rerus"
                   >
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={true}
                       hidden={false}
                       important={false}
                       label="test 2"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     >
                       <Styled(div)
                         className="todo-list-item"
@@ -1047,21 +1044,18 @@ exports[`TodoList render item with data 1`] = `
                           className="todo-list-item css-1wb1rag"
                         >
                           <Styled(div)
+                            deleteItem={[Function]}
                             done={true}
                             hidden={false}
                             important={false}
                             label="test 2"
-                            onDeleted={[Function]}
-                            onToggleDone={[Function]}
-                            onToggleImportant={[Function]}
+                            toggleDone={[Function]}
+                            toggleImportant={[Function]}
                           >
                             <div
                               className="css-1e6bkx4"
                               hidden={false}
                               label="test 2"
-                              onDeleted={[Function]}
-                              onToggleDone={[Function]}
-                              onToggleImportant={[Function]}
                             >
                               <span
                                 onClick={[Function]}
@@ -1340,13 +1334,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={true}
                       hidden={false}
                       important={false}
                       label="test 2"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}
@@ -1929,13 +1923,13 @@ exports[`TodoList render item with data 1`] = `
           <Row
             left={
               <TodoListItem
+                deleteItem={[Function]}
                 done={false}
                 hidden={false}
                 important={true}
                 label="test 3"
-                onDeleted={[Function]}
-                onToggleDone={[Function]}
-                onToggleImportant={[Function]}
+                toggleDone={[Function]}
+                toggleImportant={[Function]}
               />
             }
             leftFlexBasic={70}
@@ -1953,13 +1947,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={true}
                       label="test 3"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}
@@ -1974,13 +1968,13 @@ exports[`TodoList render item with data 1`] = `
                     className="css-16rerus"
                   >
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={true}
                       label="test 3"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     >
                       <Styled(div)
                         className="todo-list-item"
@@ -1989,21 +1983,18 @@ exports[`TodoList render item with data 1`] = `
                           className="todo-list-item css-1wb1rag"
                         >
                           <Styled(div)
+                            deleteItem={[Function]}
                             done={false}
                             hidden={false}
                             important={true}
                             label="test 3"
-                            onDeleted={[Function]}
-                            onToggleDone={[Function]}
-                            onToggleImportant={[Function]}
+                            toggleDone={[Function]}
+                            toggleImportant={[Function]}
                           >
                             <div
                               className="css-1qk374g"
                               hidden={false}
                               label="test 3"
-                              onDeleted={[Function]}
-                              onToggleDone={[Function]}
-                              onToggleImportant={[Function]}
                             >
                               <span
                                 onClick={[Function]}
@@ -2282,13 +2273,13 @@ exports[`TodoList render item with data 1`] = `
                 <Styled(div)
                   left={
                     <TodoListItem
+                      deleteItem={[Function]}
                       done={false}
                       hidden={false}
                       important={true}
                       label="test 3"
-                      onDeleted={[Function]}
-                      onToggleDone={[Function]}
-                      onToggleImportant={[Function]}
+                      toggleDone={[Function]}
+                      toggleImportant={[Function]}
                     />
                   }
                   leftFlexBasic={70}

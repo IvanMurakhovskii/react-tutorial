@@ -8,10 +8,10 @@ import { todoService } from '@/services/todo-service';
 import AddItemForm from '@/components/add-item-form';
 import styled from '@emotion/styled';
 import Header from '@/components/header';
-import { isUserLoggedIn } from '@/utils';
 import { actions } from '@/modules/todo-page/slice'
 import { connect } from 'react-redux';
 import { StoreState } from '@/store/store';
+import { isUserAuth } from '@/utils/LogInUtil';
 
 const TodosStyle = styled.div`
     margin: 2rem auto 0 auto;
@@ -47,6 +47,7 @@ class TodoPage extends Component<Props, {}> {
         this.props.loadTodos();
         this.props.getUseraname();
 
+        this.nextId = todoService.getNextId(this.props.todoData);
     }
 
     addItem = (label: string) => {
@@ -57,7 +58,7 @@ class TodoPage extends Component<Props, {}> {
     render() {
         return (
             <TodosStyle>
-                <Header username={this.props.username} isAuth={isUserLoggedIn()} />
+                <Header username={this.props.username} isAuth={isUserAuth(this.props.username)} />
                 <ErrorBoundry>
                     <OrderSelect
                         onOrderChange={this.props.changeOrder}
@@ -65,9 +66,9 @@ class TodoPage extends Component<Props, {}> {
                     <TodoList
                         todos={this.props.todoData}
                         order={this.props.order}
-                        onDeleted={this.props.delete}
-                        onToggleImportant={this.props.important}
-                        onToggleDone={this.props.done} />
+                        deleteItem={this.props.delete}
+                        toggleImportant={this.props.important}
+                        toggleDone={this.props.done} />
                     <AddItemForm addItem={this.addItem} />
                 </ErrorBoundry>
             </TodosStyle>
