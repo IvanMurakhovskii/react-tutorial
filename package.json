@@ -10,8 +10,8 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "calc": "ts-node ./src/calc",
     "lint": "eslint --fix",
-    "test": "jest --env=jsdom",
-    "check": "npm test && npm run lint",
+    "test": "jest --coverage",
+    "check": "test && lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

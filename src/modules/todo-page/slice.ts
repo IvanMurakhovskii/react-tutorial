@@ -9,7 +9,7 @@ export type TodoState = {
 }
 
 export const initialState: TodoState = {
-    todoData: [],
+    todoData: new Array(),
     order: OrderEnum.ASC,
     username: ''
 };

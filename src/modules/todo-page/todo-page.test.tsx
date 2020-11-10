@@ -31,11 +31,11 @@ describe("todo-page", () => {
         );
     });
 
-    it('should render with given state from Redux store', () => {
+    it('should render with given state from Redux store', async () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should dispatch an action when component did mount', () => {
+    it('should dispatch an action when component did mount', async () => {
         expect(store.dispatch).toHaveBeenCalledTimes(2);
     });
 });

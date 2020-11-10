@@ -4,6 +4,8 @@ import { ToDoData } from "@/types";
 
 export function orderTodos(todos: Array<ToDoData>, order: OrderEnum): Array<ToDoData> {
 
+    if (todos == undefined) return new Array();
+
     const todosCopy = [...todos];
 
     switch (order) {
