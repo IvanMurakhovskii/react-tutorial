@@ -294,6 +294,7 @@ exports[`TodoTimer render item with data 1`] = `
           <WithStyles(ForwardRef(Button))
             className="btn-start"
             color="primary"
+            disabled={false}
             onClick={[Function]}
             size="small"
             variant="contained"
@@ -334,6 +335,7 @@ exports[`TodoTimer render item with data 1`] = `
                 }
               }
               color="primary"
+              disabled={false}
               onClick={[Function]}
               size="small"
               variant="contained"
