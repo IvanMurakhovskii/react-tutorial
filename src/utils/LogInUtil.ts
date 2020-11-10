@@ -29,6 +29,6 @@ export const getUsername = (cookie?: string): string => {
 export function redirectIfNotAuth(ctx: NextPageContext) {
     const cookie = ctx.req?.headers.cookie;
     if (!isUserLoggedIn(cookie)) {
-      ctx.res?.writeHead(302, { Location: '/login' }).end();
+        ctx.res?.writeHead(302, { Location: '/login' }).end();
     }
 }

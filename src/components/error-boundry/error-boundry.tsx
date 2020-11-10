@@ -11,7 +11,7 @@ export default class ErrorBoundry extends Component<any, any> {
     componentDidCatch() {
         this.setState({
             hasError: true
-        })
+        });
     }
 
     render() {

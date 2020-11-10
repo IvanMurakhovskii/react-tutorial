@@ -1,8 +1,10 @@
 import { expectSaga } from "redux-saga-test-plan";
-import { getTodoData, loadTodos, saveTodos } from './saga';
+import { getTodoData, loadTodos, loadUsername, saveTodos } from './saga';
 import { select } from 'redux-saga-test-plan/matchers';
 import { todoService } from '@/services/todo-service';
 import { actions } from "./slice";
+import { getUsername } from "@/utils";
+import { call } from "redux-saga/effects";
 
 const faker = require('faker/locale/ru');
 
@@ -41,6 +43,14 @@ describe("Todos saga", () => {
     return expectSaga(loadTodos)
       .withState(todos)
       .put(actions.addTodos(todos))
+      .run();
+  });
+  it("expect saga - loadUsername", () => {
+    const username = "test";
+
+    return expectSaga(loadUsername)
+      .provide([[call(getUsername), username]])
+      .put(actions.setUsername(username))
       .run();
   });
 });

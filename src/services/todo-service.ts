@@ -34,7 +34,7 @@ class TodoService {
     }
 
     getNextId = (todos: Array<ToDoData>): Function => {
-        let maxId = Math.max(...todos.map(item => item.id), 0);
+        let maxId = (todos == undefined) ? 0 : Math.max(...todos.map(item => item.id), 0);
 
         return function nextId() {
             return maxId += 1;

@@ -10,7 +10,7 @@ import OrderEnum from '@/emums/order-enum';
 const mockStore = configureStore();
 
 export const initialState: TodoState = {
-    todoData: [],
+    todoData: new Array(),
     order: OrderEnum.ASC,
     username: 'username'
 };
@@ -29,14 +29,13 @@ describe("todo-page", () => {
                 <Todos />
             </Provider>
         );
-
     });
 
-    it('should render with given state from Redux store', () => {
+    it('should render with given state from Redux store', async () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should dispatch an action when component did mount', () => {
+    it('should dispatch an action when component did mount', async () => {
         expect(store.dispatch).toHaveBeenCalledTimes(2);
     });
 });
